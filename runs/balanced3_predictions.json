@@ -1,0 +1,1265 @@
+{
+  "meta": {
+    "n_per_class": 50,
+    "seed": 2026,
+    "scores": {
+      "n": 150,
+      "agree": 107,
+      "agree_pct": 71.3,
+      "confusion": {
+        "POSITIVE": {
+          "POSITIVE": 44,
+          "NEUTRAL": 6,
+          "NEGATIVE": 0
+        },
+        "NEUTRAL": {
+          "POSITIVE": 10,
+          "NEUTRAL": 21,
+          "NEGATIVE": 19
+        },
+        "NEGATIVE": {
+          "POSITIVE": 3,
+          "NEUTRAL": 5,
+          "NEGATIVE": 42
+        }
+      },
+      "recall": {
+        "POSITIVE": {
+          "correct": 44,
+          "total": 50,
+          "pct": 88.0
+        },
+        "NEUTRAL": {
+          "correct": 21,
+          "total": 50,
+          "pct": 42.0
+        },
+        "NEGATIVE": {
+          "correct": 42,
+          "total": 50,
+          "pct": 84.0
+        }
+      },
+      "precision": {
+        "POSITIVE": {
+          "correct": 44,
+          "total": 57,
+          "pct": 77.2
+        },
+        "NEUTRAL": {
+          "correct": 21,
+          "total": 32,
+          "pct": 65.6
+        },
+        "NEGATIVE": {
+          "correct": 42,
+          "total": 61,
+          "pct": 68.9
+        }
+      },
+      "misclassified": 43
+    }
+  },
+  "reviews": [
+    {
+      "idx": 73450,
+      "title": "Five Stars",
+      "text": "Easy",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 102696,
+      "title": "Five Stars",
+      "text": "It's good chances to give presents for friends and family.",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 104778,
+      "title": "Easier!",
+      "text": "Quick and no need to go out to the store to buy a gift card!",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 105711,
+      "title": "Three Stars",
+      "text": "Good.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 31167,
+      "title": "20 gift card",
+      "text": "Its a 20 dollar gift cars",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 89200,
+      "title": "Slow Shipping",
+      "text": "It\u2019s a gift card so nothing to really rate, but I\u2019m withholding 2 stars because shipping took forever.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 101597,
+      "title": "Doesn't work",
+      "text": "Gift card doesn't work, been trying for a year and a half and it's never worked",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 146848,
+      "title": "Shame",
+      "text": "$0 gift card send to me I thought I was ordering a $25 gift card! I had to call Amazon to get a new one.",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 115556,
+      "title": "Five Stars",
+      "text": "Just as described.",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 136870,
+      "title": "Dirty",
+      "text": "Gift Card is not in the best shape and the gift card holder is dirty. Disappointed in the condition it came in for a gift for someone else",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 21279,
+      "title": "Easy to use",
+      "text": "Easy to use",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 106331,
+      "title": "Speedy!",
+      "text": "It processed in 10 minutes. It was very useful and it was VERY quick!",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 110980,
+      "title": "not activated",
+      "text": "wont let me use it",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 149372,
+      "title": "Useless, if you can't load the gift cards!!",
+      "text": "Not sure if it's just me, but I can't figure out where to access the scanner to activate. The cards I purchased don't have a serial number and the customer service person didn't have a clue! Can someone tell me where the QR code scanner is located??",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 39682,
+      "title": "Gift",
+      "text": "Grandson liked the card and I don't think it mattered what it came in.  I did like the design of the box though and it added a little something to just a card....",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 43570,
+      "title": "Extra postage required",
+      "text": "It would have been helpful for Amazon to inform the buyer that mailing this gift card requires extra postage. I put it in a regular greeting card with two stamps. The recipient had to pay $3.40 when it was delivered. This is unacceptable. A heads up would have been greatly appreciated. It is cute, but not $4.60 worth of postage cute. Reading other reviews about a gift receipt not being included when it is shipped from Amazon is not a very good option in my opinion.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 147688,
+      "title": "mORE!!!",
+      "text": "Wish you had more cards",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 67818,
+      "title": "Not What I Expected",
+      "text": "Did not receive bookmark sleeve or the ribbon in stock photos<br /><br />Code is on the back of the bookmark. From the photos thought it was a separate card or voucher. Fell odd when in use; when you flip it over, you see the gift card amount and bar codes. Guess it can be a motivator to finish a book, rewarding yourself after it's done, but only can be used once.<br /><br />Code redemption is a scratch off which is disappointing. Thought they went pass that, and gone with a peel off design. Must have a coin or key handy.<br /><br /> If you use the amazon app you can redeem the amount in seconds: click the camera option and align the boxes with the text code.<br /><br />Shows the amount on the back of the bookmark, so no surprises.<br /><br />Quality of the bookmark is good. Sturdy plastic. Slightly thinner than regular Amazon Gift Card. Is tear-proof, but can be cut with scissors.<br /><br />Essentially just an Amazon Gift Card but in a different form factor: in a shape that can be used as a bookmark",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 97614,
+      "title": "To remember to pay after you use all of it.",
+      "text": "It was very cool.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 145131,
+      "title": "Take one biz day to reload your balance.",
+      "text": "It takes time to reload your balance, even though your order mail said \u201c Typically your balance is updated within 5 minutes of your order\u201d. I have contacted the customer service and it said that usually takes 1 business day to reload. Quite a misleading wording from the gift card section in Amazon.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 27574,
+      "title": "Great, thanks",
+      "text": "Great, thanks",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 103642,
+      "title": "Not all Cards work",
+      "text": "Bought Subwayway gift cards as a gift for Christmas. Sent them to Granddaughter on Michigan. One of the gift cards did not work. Was not any good.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 33548,
+      "title": "Everyone loves an Amazon card",
+      "text": "Makes for a great gift, love the package and ships perfectly",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 55720,
+      "title": "Policy issue",
+      "text": "Bought because steam cards were unavailable on Amazon. Wanted to use Best Buy to purchase Steam. Best Buy wouldn\u2019t allow them to be used for that purpose.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 101989,
+      "title": "Good",
+      "text": "How can I return  my money to my bank.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 130406,
+      "title": "It worked. No problems.",
+      "text": "It worked a solid expected. Nothing about it to make me think that it exceeded my expectations so three stars it is. Maybe offer more increments?",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 79199,
+      "title": "The envelope is ripped",
+      "text": "The envelope is ripped. This is a supposed to be a gift...",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 134854,
+      "title": "OMG the most amazing, incredible thing ever",
+      "text": "OMG the most amazing, incredible thing ever... Oh wait they are just plastic ordinary gift cards; but I did receive an Amazon promo credit.  5 stars it is.",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 133577,
+      "title": "No gift receipt. Can\u2019t verify amout",
+      "text": "No gift receipt in box. Can\u2019t verify amount. Will return",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 109276,
+      "title": "not presentable",
+      "text": "This card was delivered to me all messed up with scratches and black markings and was sticky.  I will use it for myself but I cannot give it as a present.",
+      "rating": 2.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 116689,
+      "title": "Glad to have the service but the process seems arcane and confusing",
+      "text": "In attempting to reload a Gift Card Balance, I was very uncertain and unsure as to the pathway and the process.  It could be more user friendly and reassuring.  That said, it all worked out OK.",
+      "rating": 2.0,
+      "true": "NEGATIVE",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 144470,
+      "title": "Five Stars",
+      "text": "Great service and product!",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 25209,
+      "title": "Cute presentation",
+      "text": "Sooo cute",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 2441,
+      "title": "Hotels. com restricts gift card use to specific hotels ...",
+      "text": "Hotels.com restricts gift card use to specific hotels.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 12262,
+      "title": "Card was declined!  Useless!",
+      "text": "I was unable to use this Pizza Hut gift card.  I ordered pizza and pasta online but card was declined.  I tried entering different numbers on the back of the card but nothing worked.  Could the number be underneath the blocked out area?  Very disappointed.  Marilyn",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 115270,
+      "title": "Got some prepaid cards lying around that can fulfill a ...",
+      "text": "Got some prepaid cards lying around that can fulfill a full purchase? Put them in your amazon account! Every dollar counts!",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 118773,
+      "title": "I was riped off",
+      "text": "I bought a Texas Roadhouse gift card for my friend.  she tried to use it today 5/2/2019  was no balance  how embarrasing  please send new GOOD one or return my $50  not happy<br /><br />Corena Stiffler",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 59194,
+      "title": "I was disappointed because I incorrectly reloaded my gift card",
+      "text": "I was disappointed because I incorrectly reloaded my gift card, and then I sent in a message asking to have the reload rescinded and my credit card credited.  However, no action was ever taken, and the reload remained on my account.  Rather than to pursue it any further, I decided to 'let it go,' but I was not happy with the outcome.",
+      "rating": 2.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 89976,
+      "title": "Five Stars",
+      "text": "Conveniently used for PlayStore Card! ;-)",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 101225,
+      "title": "Nice way to gift",
+      "text": "Nice way to gift to friends and family",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 133695,
+      "title": "Ten Tin",
+      "text": "The recipient thoroughly enjoyed the tin.",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 138294,
+      "title": "Damaged Card",
+      "text": "Card arrive all damage and looked like it can out of a dumpster somewhere.",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 13576,
+      "title": "OK",
+      "text": "OK",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 107382,
+      "title": "Three Stars",
+      "text": "you can never go wrong for a gift card",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 39449,
+      "title": "I ordered what I thought would be a nice tin case for the gift card",
+      "text": "I ordered what I thought would be a nice tin case for the gift card. No. One corner of the tin was smashed in, three more dents on the top of the tin and multiple scratches on both the top and the bottom. The tin came in a well-padded envelope, so I have to assume that the tin was in poor condition when Amazon packed it.",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 133516,
+      "title": "Damaged box",
+      "text": "[[VIDEOID:596ff2669773a7c422333cc8d4911df9]] I bought 2 each $100 for my family, one of them arrived damage box, inside the giftcard look bending like they force it to fit the box. This is a gift, the look is matter. Since it is near Chrismas so I can\u2019t replace it otherwise it is going to arrived after Chrismas. So disappointed.",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 75376,
+      "title": "Card ripped out of holder",
+      "text": "This is a gift\u2026. There\u2019s no gift receipt and card is all ripped up.",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 9779,
+      "title": "Card",
+      "text": "This card was sent to me and it wasn't authorized. I was embarrassed at the restaurant.  I have since been given my money back and told I could use it anyway. Itd not authorized",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 150888,
+      "title": "Annoying but. Ok\ud83d\ude44",
+      "text": "Takes forever for the order to process out of my account.",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 82997,
+      "title": "worst gift package",
+      "text": "The gift card package was torn and not in good condition.",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 106322,
+      "title": "Long processing 4-5 days before it's available on your account. Beware",
+      "text": "The processing took 4 -5 days before it's complete. I can't gift a gift card with that long over processing time. Please fix it",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 95859,
+      "title": "I did not want to RELOAD !",
+      "text": "I finally used my $100 gift card and the last thing I wanted to do was RELOAD another gift card!!!  It was so unclear how to just use my gift card and be done!  I believe YOU made me RELOAD another $100, which was not what I wanted to do.  I only wanted to use the card I had and then I spent 30 minutes on the phone trying to decline the new card which you would not authorize so I had another $100 gift card I did not want but automatically charged to my CC.  I don't want anyone to get me another $100 Gift Card from AMAZON!  Thank you!!!!",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 144272,
+      "title": "They loved it!",
+      "text": "This was a gift for my son and daughter-in-law. They loved it !",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 107951,
+      "title": "EASY TO STEAL.. YOUR  AMAZON MAIL ORDER CARD NUMBER DID NOT WORK..???",
+      "text": "EASY TO STEAL.. YOUR  AMAZON MAIL ORDER CARD NUMBER DID NOT WORK..???",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 94255,
+      "title": "Former way too add funds to amz balance was MUCH easier.",
+      "text": "AMZ changed mode of loading funds into acct bal - this New way much more difficult. They (AMZ) \"fixed\" something for the Customer that was NOT broken.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 121477,
+      "title": "Thank you",
+      "text": "Best card ever",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 32806,
+      "title": "Trustworthy",
+      "text": "Pretty box",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 703,
+      "title": "Works",
+      "text": "Thank You",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 107770,
+      "title": "Late",
+      "text": "Ordered 3 other items, all got here in record time...except the 4th item a gift card which did not show up at all.",
+      "rating": 2.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 86654,
+      "title": "gift card",
+      "text": "It was fine to send as agift",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 100147,
+      "title": "Amazon.com Gift Card Balance Reload",
+      "text": "I received you payment method from Marriott Rewards.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 143242,
+      "title": "One Star",
+      "text": "Easy to order & what the couple requested. Quick service!",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 91,
+      "title": "Okay as a gift",
+      "text": "After I bought several I realized I could have sent \"gift\" money via text without the fees or wait.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 97920,
+      "title": "Five Stars",
+      "text": "Loved it.",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 3196,
+      "title": "It\u2019s a gift card",
+      "text": "It\u2019s a gift card, there is nothing else to say.",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 148342,
+      "title": "Game Stop",
+      "text": "I was satisfied with the promptness of receiving the gift card. It's great not to have to run around and it saves on gas.",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 112409,
+      "title": "Amount not correct",
+      "text": "I ordered two of these at $25 each (was appropriately charged and order history matches this).  They went to my best friend's two children, and when she went to use them, one had $42.03 and the other had $0.  The kids missed out on $7.97, and luckily I gave them to the same family, so mom was able to split the amount between the two children.  Had I gifted them to anyone other than my best friend this would have been highly embarrassing.  I will never order again.",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 108582,
+      "title": "Easy to send",
+      "text": "Sent as a gift",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 80153,
+      "title": "No $10 Rebate Received!!!!",
+      "text": "Said I was going to get $10 credit for putting hundred dollars on gift card. However it did not give me the $10.",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 56154,
+      "title": "One Star",
+      "text": "ended up being ripped off.  this cost me $300 - However, it was not Amazon's fault.  I was scammed by a 3rd party. Just beware...",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 109776,
+      "title": "they do not answer the phone # they provide",
+      "text": "set up golf time at course on their list, two days before, submitted info to their on line sight, only to find out at the course that that course no longer accepts their card do to problems of not getting paid!!",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 63267,
+      "title": "Xmas gift for my mom",
+      "text": "Works like a gift card should. It's really hard to shop for my mom since she is alway's doing something different! A gift card to her favorite store should do the trick!",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 100045,
+      "title": "Reload",
+      "text": "This is a great way to reload your amazon account but if you have any issues there\u2019s really no way to contact help, but that\u2019s basically amazon in general.",
+      "rating": 4.0,
+      "true": "POSITIVE",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 103393,
+      "title": "It works",
+      "text": "Meh",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 28862,
+      "title": "Five Stars",
+      "text": "Great!",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 111749,
+      "title": "lost in the mail!",
+      "text": "to late to give as a gift",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 65813,
+      "title": "Unable to use full gift amount.",
+      "text": "Unable to use $100 gift card after spending only $13.56 of it.",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 128658,
+      "title": "Five Stars",
+      "text": "great gift",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 83224,
+      "title": "Five Stars",
+      "text": "Bought this for my assistant.  She buys from Amazon often and was excited to buy more.",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 133927,
+      "title": "Guaranteed one-day shipping",
+      "text": "I ordered three gift cards for a friend who was moving and selected one-day shipping, with the gift cards set to arrive the day before she was due to leave, so she and her son had gift cards to use for meal stops along the journey. She was to leave in the morning, as one does when they are moving 15 hours away, but instead of having the gift cards with her they were still on the fedex truck until 12:30pm. The one-day &#34;guaranteed&#34; shipping did not happen. There was no bad weather. There was no holiday rush. When contacted about the delay, there was no reason for why they failed to be delivered by the promised time. Just that they failed to be dispatched with any promptness, and from then on failed to be treated with any of the urgency one might expect with &#34;guaranteed one-day shipping&#34;.<br />I got my shipping fees refunded. Well that was nice of them, wasn't it?",
+      "rating": 2.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 148180,
+      "title": "recipients of gift cards are told the cards are invalid & they try to use them immediately",
+      "text": "Over the past few months, I have purchase various gift cards for my grandchildren.  I believe one may have been Jersey Mike's, another Wild Buffalo Wings, and two from Starbucks.  When they try to use them, the retailers tell them they are not activated or valid and cannot be used.  So, I have spent all of this money, and the cards cannot be used.  I am not sure if they still have the older ones or if they tossed them when told they were invalid, but one for Buffalo Wild Wings and one of the Starbucks cards just got delivered today.  Can you please tell me what they have to do to have the cards be valid?  Your prompt attention toward a resolution of this matter would be greatly appreciated.  Let me thank you in advance for all of your time and help.",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 123837,
+      "title": "The gift box was beautiful and well decorated.",
+      "text": "I would buy this again, but ask for a different box!",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 136770,
+      "title": "One of them has no $ on it",
+      "text": "Can\u2019t use it sent to grandson",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 64976,
+      "title": "Difficult to determine value",
+      "text": "I bought 6-$50 and 5-$25 gift cards. They all came in one box. I could not determine which were the $50 and which the $25. I finally saw where I could match the serial number with the ones on the packing slip. I think it would have been much better to put each value in a separate envelope",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 21428,
+      "title": "If this is a gift, you're going to want to buy two; one for them and one for you!",
+      "text": "Firehouse Subs is spectacular! Their tasty subs come with steamed meat, &#34;fully involved&#34; fresh ingredients, and perfectly toasted bread, making for a great meal any time of the day. In addition, they have a great selection of hot sauces in the store if you like your sandwiches to have a little &#34;kick.&#34; Try this place and you'll be hooked (and laddered)! Yum!",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 114178,
+      "title": "Three Stars",
+      "text": "it's a gift certificate, for heaven's sake",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 91987,
+      "title": "Christmas gift",
+      "text": "It was a Christmas gift...",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 136343,
+      "title": "Three Stars",
+      "text": "Thanks",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 40072,
+      "title": "Great Idea, problem with implementation",
+      "text": "A friend told me how convenient these Amazon Gift Cards are. I ordered one for a graduate. It was delivered on time, but the gift message I requested was not inserted into the gift. The recipients had no idea where the card came from. Luckily, they called Amazon for help and then contacted me for verification. I was embarrassed and not likely to use these gift cards again.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 116236,
+      "title": "The snowflake tin was a nice decorative addition to contain the gift card.",
+      "text": "The recipient of the gift card was surprised to find that Amazon gift cards came with a tin as the \"wrapping\".",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 127790,
+      "title": "Gift card designed to fail",
+      "text": "I will never buy a gift card from amazon for anyone! This is card is poorly designed when you  scratch off the code the whole sticker comes off!!! Had talk to a lady for 20 mins to only tell me i have to wait another two days to use my card so they can send me my code through email!! Wow another way to get more money by people not wanting to to take time out of there day just to get a code! Never will buy gift card for this company :/",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 17605,
+      "title": "Two Stars",
+      "text": "c",
+      "rating": 2.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 19923,
+      "title": "Used to be better",
+      "text": "You used to get a bonus when adding $100 or more to your gift card, but not anymore. So I don't see any advantage now, It's easier just to use a debit or credit card at checkout.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 131223,
+      "title": "Five Stars",
+      "text": "Easy and fast",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 91067,
+      "title": "Cute Idea But Damaged Box",
+      "text": "The idea seems very cute but too bad the box came damaged (there was a rip in it).",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 129407,
+      "title": "Better read the fine print",
+      "text": "Was offered $10 bonus for adding $100 in gift cards.  Did it once, received bonus.  Checked balance and it increased $110.  Indicated I could do the process again, so I did.  Checked gift card balance again, it only went up an additional $100.  Guess what - no bonus.  Seems you can only get the bonus once.  I feel misled by Amazon!",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 122792,
+      "title": "Excellent feature",
+      "text": "I used it a lot in the year i've been buying on amazon and it helped me a lot",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 130741,
+      "title": "are these real?",
+      "text": "trying to redeem gift card for hours now: gift card numbers dont match up with celebrity system.  there are too many numbers. celebrity cannot find this gift card in their system.",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 146895,
+      "title": "Its great having extra for the purchase",
+      "text": "So glad it was available!!",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 137340,
+      "title": "hardly \"instant\", but the only way to do multiple pay sources",
+      "text": "Took so long that I had to send in a trouble ticket, but was fixed right away once I did.",
+      "rating": 2.0,
+      "true": "NEGATIVE",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 127143,
+      "title": "Not what they said",
+      "text": "I ordered these on prime day. The cards showed up really fast like it said it would.  Love that. However,  there was supposed be a $10 promotional code. Didn't get one. I will use the cards because they are for the same value I paid for them.  Just not happy they didn't come with the promised promo code.",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 120453,
+      "title": "I like and admire Whole Foods, however",
+      "text": "most people I know think they are too expensive.  We use them for certain things.  I won't give these again as a gift because you don't get that much for $50.00 and I gave them to college students.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 151432,
+      "title": "Always a great gift!",
+      "text": "Having trouble deciding on a gift?  Gift cards are perfect for that!!!",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 3890,
+      "title": "Was my fault, didn\u2019t mean to order",
+      "text": "I called right away they took this off my charge card, took a few days, I made the mistake to order this",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 144505,
+      "title": "Five Stars",
+      "text": "Cute packaging",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 95862,
+      "title": "Disappointed in condition",
+      "text": "Card holder was dirty and bent. Going to be a gift so I scratched  off code to check balance, which was valid. Surprised they would send out a card looking like this one.",
+      "rating": 2.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 149584,
+      "title": "Five Stars",
+      "text": "It was so easy",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 141842,
+      "title": "IT TOOK THREE TRIES TO UPLOAD AND THEN I COULD ...",
+      "text": "IT TOOK THREE TRIES TO UPLOAD AND THEN  I COULD ONLY RELOAD ON GIFT CARD ....IT WAS A REAL PAIN",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 122275,
+      "title": "Easy",
+      "text": "Easy",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 68139,
+      "title": "Love this",
+      "text": "Loved everything about this and it is free for the holder\u2026that\u2019s wonderful",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 63037,
+      "title": "It's good for a last minute gift",
+      "text": "I mean this is a gift card purchase. It's good for a last minute gift.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 81817,
+      "title": "Cute way to send a gift card",
+      "text": "I love that Amazon includes these super cute gift card holders, without charging separately for them. Even though I'm sending a gift card, I still want the packaging to be sort of cute. Love these cupcakes!",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 31007,
+      "title": "Very difficult to find out the value of each card. 2 in the box with different values",
+      "text": " ",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 122071,
+      "title": "It\u2019s a nicely e-shopping experience on Amazon and also their providing customer service to me.",
+      "text": "Like to buy hiking shoe which the size may not find in Taiwan and also good to be Thanksgiving gifts",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 152010,
+      "title": "Cute, not functional",
+      "text": "Bought this gift card for a teacher. I loved how adorable this gift card holder looked. The only downside to the ornament is the hook wasn\u2019t very big so I don\u2019t think it would actually hang on a tree. Overall, I thought this was a good purchase.",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 7241,
+      "title": "I love the floral box but I'm not a fan of ...",
+      "text": "I love the floral box but I'm not a fan of the fact that the card itself does not show the amount",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 100860,
+      "title": "Damaged",
+      "text": "All three of the tins were damaged! The cards are paper so even pulling them out looks so cheap. So upset! Price is also not printed so have to write it on.",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 59564,
+      "title": "Five Stars",
+      "text": "thanks",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 96034,
+      "title": "Three Stars",
+      "text": "gfh",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 140634,
+      "title": "Five Stars",
+      "text": "whats not to love about amazon gift cards?",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 147146,
+      "title": "Didn't work when I tried to upload to the Xbox.",
+      "text": "I was not able to use the card that I had gotten.. It would not put the money on the account.",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 138621,
+      "title": "but I never received it so felt like being fooled",
+      "text": "cards arrived okay, but it was advertised for $10 gift card, but I never received it so felt like being fooled!",
+      "rating": 2.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 42986,
+      "title": "Three Stars",
+      "text": "Written to keep a reader's interest",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 105822,
+      "title": "First time for everything.",
+      "text": "The cards were not delivered as stated.  UPS - signed by driver release.  This is inappropriate.  I cannot afford to<br />lose the amount paid for gift cards. I do have serial numbers.<br />This order was place on Nov. 28, 2018.<br />Quebell Crank",
+      "rating": 2.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 132481,
+      "title": "There's no place to write sender/receiver names or a short message. But the red packaging looks cute.",
+      "text": "There's no place to write sender/receiver names or a short message. But the red packaging looks cute.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 150480,
+      "title": "Great products, delivered on time and safely",
+      "text": "I like all products and the way they were delivered very fast and safely",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 31890,
+      "title": "Three Stars",
+      "text": "Gift.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 57802,
+      "title": "Great gift for college students",
+      "text": "I bought 8 cards for my college student for Christmas, he was so excited but we could use but the 8 one refuses to work. Yes checked all cards 3 times. Yes, double checked numbers still it will not work so buy 8 at 25 each and lose 1 $ 25.00 so pay for 8 but only get 7.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 115744,
+      "title": "Ok",
+      "text": "Why would I rate a gift card that I put on here-makes no sense",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 77166,
+      "title": "Good way to send gifts",
+      "text": "Gift card is great and was delivered on time.  The card telling who it was from didn't make it into the package and it was an accident I found out.  They made the statement someone sent us $50 and we have no idea who.",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 94799,
+      "title": "That order is correct and mine not",
+      "text": "I wrote 3 individual notes to my grandkids and only 2 where I closed. Very disappointed",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 136935,
+      "title": "The card was fine..",
+      "text": "The card was fine...it's a card. The shipping was a joke. Was supposed to arrive the following day for a gift. Took almost two weeks",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 94865,
+      "title": "It works",
+      "text": "It worked for me at Walmart and dollar general",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 88390,
+      "title": "I live in P.R. and I got it withing a week.",
+      "text": "It was a gift for a friend.",
+      "rating": 4.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 95976,
+      "title": "Three Stars",
+      "text": "ok",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 41562,
+      "title": "Amazon gift card reload.",
+      "text": "It's a trick. Nothing else. Why does one need to reload a gift card?",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 6902,
+      "title": "Five Stars",
+      "text": "love it; thanks a million to My Amazon",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 140188,
+      "title": "Why didn't I receive my extra $10 for adding $100 to acct balance",
+      "text": "Why did it not give me the $10 extra for my balance being $100 like it said",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 71382,
+      "title": "Fraud!",
+      "text": "I purchased this card for Christmas and can\u2019t use it! The card has been voided!",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 91634,
+      "title": "Easy to use",
+      "text": "Easy to use, home goodsExcellent",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 25495,
+      "title": "Nice",
+      "text": "Nice",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 147139,
+      "title": "Could never get it tow work",
+      "text": "Could never get this one to work",
+      "rating": 1.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 45628,
+      "title": "Survey not worth it.",
+      "text": "The Survey I had to take was not worth it.",
+      "rating": 2.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 117688,
+      "title": "VISA GIFT CARDS MUST BE DELETED FROM ACCOUNT AFTER USING TO RELOAD FUNDS",
+      "text": "I routinely add visa gift cards that my kids get as gifts to my amazon account and then give them cash.  This makes it easier to spend them and you don't have to worry about partial balances.  However, you must add t6he visa gift card as a payment type to your account and then you have to manually delete it later from a different web page.<br /><br />Why not allow these visa gift cards to be deleted directly from the reload page?",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEUTRAL"
+    },
+    {
+      "idx": 22666,
+      "title": "Five Stars",
+      "text": "Gift for brother-in-law.",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 81916,
+      "title": "Very cute!!",
+      "text": "My niece will love this!!",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 33769,
+      "title": "Two Stars",
+      "text": "Bad Deal!!<br />You pay over 10 to receive a 10 gift card.  Best to buy at store",
+      "rating": 2.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 111506,
+      "title": "I was unable to use it at a restaurant. It kept saying invalid",
+      "text": "I was unable to use it at a restaurant. It kept saying invalid",
+      "rating": 2.0,
+      "true": "NEGATIVE",
+      "pred": "NEGATIVE"
+    },
+    {
+      "idx": 71406,
+      "title": "Fun",
+      "text": "Fun to give",
+      "rating": 5.0,
+      "true": "POSITIVE",
+      "pred": "POSITIVE"
+    },
+    {
+      "idx": 20813,
+      "title": "Lable the value.",
+      "text": "We bought 3 cards of different values and we could figure out which one was what. Needs to be labeled values",
+      "rating": 3.0,
+      "true": "NEUTRAL",
+      "pred": "NEGATIVE"
+    }
+  ]
+}

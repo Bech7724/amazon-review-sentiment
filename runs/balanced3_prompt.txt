@@ -1,0 +1,607 @@
+Below are 150 product reviews. For EACH one classify the overall sentiment as EXACTLY ONE of: POSITIVE, NEUTRAL, or NEGATIVE.
+- POSITIVE: clearly favorable
+- NEUTRAL: mixed, matter-of-fact, or unremarkable
+- NEGATIVE: clearly unfavorable
+
+Reply strictly as a numbered list, one per line, in the format: 1: POSITIVE
+Use only the words POSITIVE, NEUTRAL, or NEGATIVE. No other text.
+
+Review 1:
+Title: Five Stars
+Text: Easy
+
+Review 2:
+Title: Five Stars
+Text: It's good chances to give presents for friends and family.
+
+Review 3:
+Title: Easier!
+Text: Quick and no need to go out to the store to buy a gift card!
+
+Review 4:
+Title: Three Stars
+Text: Good.
+
+Review 5:
+Title: 20 gift card
+Text: Its a 20 dollar gift cars
+
+Review 6:
+Title: Slow Shipping
+Text: It’s a gift card so nothing to really rate, but I’m withholding 2 stars because shipping took forever.
+
+Review 7:
+Title: Doesn't work
+Text: Gift card doesn't work, been trying for a year and a half and it's never worked
+
+Review 8:
+Title: Shame
+Text: $0 gift card send to me I thought I was ordering a $25 gift card! I had to call Amazon to get a new one.
+
+Review 9:
+Title: Five Stars
+Text: Just as described.
+
+Review 10:
+Title: Dirty
+Text: Gift Card is not in the best shape and the gift card holder is dirty. Disappointed in the condition it came in for a gift for someone else
+
+Review 11:
+Title: Easy to use
+Text: Easy to use
+
+Review 12:
+Title: Speedy!
+Text: It processed in 10 minutes. It was very useful and it was VERY quick!
+
+Review 13:
+Title: not activated
+Text: wont let me use it
+
+Review 14:
+Title: Useless, if you can't load the gift cards!!
+Text: Not sure if it's just me, but I can't figure out where to access the scanner to activate. The cards I purchased don't have a serial number and the customer service person didn't have a clue! Can someone tell me where the QR code scanner is located??
+
+Review 15:
+Title: Gift
+Text: Grandson liked the card and I don't think it mattered what it came in.  I did like the design of the box though and it added a little something to just a card....
+
+Review 16:
+Title: Extra postage required
+Text: It would have been helpful for Amazon to inform the buyer that mailing this gift card requires extra postage. I put it in a regular greeting card with two stamps. The recipient had to pay $3.40 when it was delivered. This is unacceptable. A heads up would have been greatly appreciated. It is cute, but not $4.60 worth of postage cute. Reading other reviews about a gift receipt not being included when it is shipped from Amazon is not a very good option in my opinion.
+
+Review 17:
+Title: mORE!!!
+Text: Wish you had more cards
+
+Review 18:
+Title: Not What I Expected
+Text: Did not receive bookmark sleeve or the ribbon in stock photos  Code is on the back of the bookmark. From the photos thought it was a separate card or voucher. Fell odd when in use; when you flip it over, you see the gift card amount and bar codes. Guess it can be a motivator to finish a book, rewarding yourself after it's done, but only can be used once.  Code redemption is a scratch off which is disappointing. Thought they went pass that, and gone with a peel off design. Must have a coin or key handy.   If you use the amazon app you can redeem the amount in seconds: click the camera option and align the boxes with the text code.  Shows the amount on the back of the bookmark, so no surprises.  Quality of the bookmark is good. Sturdy plastic. Slightly thinner than regular Amazon Gift Card. Is tear-proof, but can be cut with scissors.  Essentially just an Amazon Gift Card but in a different form factor: in a shape that can be used as a bookmark
+
+Review 19:
+Title: To remember to pay after you use all of it.
+Text: It was very cool.
+
+Review 20:
+Title: Take one biz day to reload your balance.
+Text: It takes time to reload your balance, even though your order mail said “ Typically your balance is updated within 5 minutes of your order”. I have contacted the customer service and it said that usually takes 1 business day to reload. Quite a misleading wording from the gift card section in Amazon.
+
+Review 21:
+Title: Great, thanks
+Text: Great, thanks
+
+Review 22:
+Title: Not all Cards work
+Text: Bought Subwayway gift cards as a gift for Christmas. Sent them to Granddaughter on Michigan. One of the gift cards did not work. Was not any good.
+
+Review 23:
+Title: Everyone loves an Amazon card
+Text: Makes for a great gift, love the package and ships perfectly
+
+Review 24:
+Title: Policy issue
+Text: Bought because steam cards were unavailable on Amazon. Wanted to use Best Buy to purchase Steam. Best Buy wouldn’t allow them to be used for that purpose.
+
+Review 25:
+Title: Good
+Text: How can I return  my money to my bank.
+
+Review 26:
+Title: It worked. No problems.
+Text: It worked a solid expected. Nothing about it to make me think that it exceeded my expectations so three stars it is. Maybe offer more increments?
+
+Review 27:
+Title: The envelope is ripped
+Text: The envelope is ripped. This is a supposed to be a gift...
+
+Review 28:
+Title: OMG the most amazing, incredible thing ever
+Text: OMG the most amazing, incredible thing ever... Oh wait they are just plastic ordinary gift cards; but I did receive an Amazon promo credit.  5 stars it is.
+
+Review 29:
+Title: No gift receipt. Can’t verify amout
+Text: No gift receipt in box. Can’t verify amount. Will return
+
+Review 30:
+Title: not presentable
+Text: This card was delivered to me all messed up with scratches and black markings and was sticky.  I will use it for myself but I cannot give it as a present.
+
+Review 31:
+Title: Glad to have the service but the process seems arcane and confusing
+Text: In attempting to reload a Gift Card Balance, I was very uncertain and unsure as to the pathway and the process.  It could be more user friendly and reassuring.  That said, it all worked out OK.
+
+Review 32:
+Title: Five Stars
+Text: Great service and product!
+
+Review 33:
+Title: Cute presentation
+Text: Sooo cute
+
+Review 34:
+Title: Hotels. com restricts gift card use to specific hotels ...
+Text: Hotels.com restricts gift card use to specific hotels.
+
+Review 35:
+Title: Card was declined!  Useless!
+Text: I was unable to use this Pizza Hut gift card.  I ordered pizza and pasta online but card was declined.  I tried entering different numbers on the back of the card but nothing worked.  Could the number be underneath the blocked out area?  Very disappointed.  Marilyn
+
+Review 36:
+Title: Got some prepaid cards lying around that can fulfill a ...
+Text: Got some prepaid cards lying around that can fulfill a full purchase? Put them in your amazon account! Every dollar counts!
+
+Review 37:
+Title: I was riped off
+Text: I bought a Texas Roadhouse gift card for my friend.  she tried to use it today 5/2/2019  was no balance  how embarrasing  please send new GOOD one or return my $50  not happy  Corena Stiffler
+
+Review 38:
+Title: I was disappointed because I incorrectly reloaded my gift card
+Text: I was disappointed because I incorrectly reloaded my gift card, and then I sent in a message asking to have the reload rescinded and my credit card credited.  However, no action was ever taken, and the reload remained on my account.  Rather than to pursue it any further, I decided to 'let it go,' but I was not happy with the outcome.
+
+Review 39:
+Title: Five Stars
+Text: Conveniently used for PlayStore Card! ;-)
+
+Review 40:
+Title: Nice way to gift
+Text: Nice way to gift to friends and family
+
+Review 41:
+Title: Ten Tin
+Text: The recipient thoroughly enjoyed the tin.
+
+Review 42:
+Title: Damaged Card
+Text: Card arrive all damage and looked like it can out of a dumpster somewhere.
+
+Review 43:
+Title: OK
+Text: OK
+
+Review 44:
+Title: Three Stars
+Text: you can never go wrong for a gift card
+
+Review 45:
+Title: I ordered what I thought would be a nice tin case for the gift card
+Text: I ordered what I thought would be a nice tin case for the gift card. No. One corner of the tin was smashed in, three more dents on the top of the tin and multiple scratches on both the top and the bottom. The tin came in a well-padded envelope, so I have to assume that the tin was in poor condition when Amazon packed it.
+
+Review 46:
+Title: Damaged box
+Text: [[VIDEOID:596ff2669773a7c422333cc8d4911df9]] I bought 2 each $100 for my family, one of them arrived damage box, inside the giftcard look bending like they force it to fit the box. This is a gift, the look is matter. Since it is near Chrismas so I can’t replace it otherwise it is going to arrived after Chrismas. So disappointed.
+
+Review 47:
+Title: Card ripped out of holder
+Text: This is a gift…. There’s no gift receipt and card is all ripped up.
+
+Review 48:
+Title: Card
+Text: This card was sent to me and it wasn't authorized. I was embarrassed at the restaurant.  I have since been given my money back and told I could use it anyway. Itd not authorized
+
+Review 49:
+Title: Annoying but. Ok🙄
+Text: Takes forever for the order to process out of my account.
+
+Review 50:
+Title: worst gift package
+Text: The gift card package was torn and not in good condition.
+
+Review 51:
+Title: Long processing 4-5 days before it's available on your account. Beware
+Text: The processing took 4 -5 days before it's complete. I can't gift a gift card with that long over processing time. Please fix it
+
+Review 52:
+Title: I did not want to RELOAD !
+Text: I finally used my $100 gift card and the last thing I wanted to do was RELOAD another gift card!!!  It was so unclear how to just use my gift card and be done!  I believe YOU made me RELOAD another $100, which was not what I wanted to do.  I only wanted to use the card I had and then I spent 30 minutes on the phone trying to decline the new card which you would not authorize so I had another $100 gift card I did not want but automatically charged to my CC.  I don't want anyone to get me another $100 Gift Card from AMAZON!  Thank you!!!!
+
+Review 53:
+Title: They loved it!
+Text: This was a gift for my son and daughter-in-law. They loved it !
+
+Review 54:
+Title: EASY TO STEAL.. YOUR  AMAZON MAIL ORDER CARD NUMBER DID NOT WORK..???
+Text: EASY TO STEAL.. YOUR  AMAZON MAIL ORDER CARD NUMBER DID NOT WORK..???
+
+Review 55:
+Title: Former way too add funds to amz balance was MUCH easier.
+Text: AMZ changed mode of loading funds into acct bal - this New way much more difficult. They (AMZ) "fixed" something for the Customer that was NOT broken.
+
+Review 56:
+Title: Thank you
+Text: Best card ever
+
+Review 57:
+Title: Trustworthy
+Text: Pretty box
+
+Review 58:
+Title: Works
+Text: Thank You
+
+Review 59:
+Title: Late
+Text: Ordered 3 other items, all got here in record time...except the 4th item a gift card which did not show up at all.
+
+Review 60:
+Title: gift card
+Text: It was fine to send as agift
+
+Review 61:
+Title: Amazon.com Gift Card Balance Reload
+Text: I received you payment method from Marriott Rewards.
+
+Review 62:
+Title: One Star
+Text: Easy to order & what the couple requested. Quick service!
+
+Review 63:
+Title: Okay as a gift
+Text: After I bought several I realized I could have sent "gift" money via text without the fees or wait.
+
+Review 64:
+Title: Five Stars
+Text: Loved it.
+
+Review 65:
+Title: It’s a gift card
+Text: It’s a gift card, there is nothing else to say.
+
+Review 66:
+Title: Game Stop
+Text: I was satisfied with the promptness of receiving the gift card. It's great not to have to run around and it saves on gas.
+
+Review 67:
+Title: Amount not correct
+Text: I ordered two of these at $25 each (was appropriately charged and order history matches this).  They went to my best friend's two children, and when she went to use them, one had $42.03 and the other had $0.  The kids missed out on $7.97, and luckily I gave them to the same family, so mom was able to split the amount between the two children.  Had I gifted them to anyone other than my best friend this would have been highly embarrassing.  I will never order again.
+
+Review 68:
+Title: Easy to send
+Text: Sent as a gift
+
+Review 69:
+Title: No $10 Rebate Received!!!!
+Text: Said I was going to get $10 credit for putting hundred dollars on gift card. However it did not give me the $10.
+
+Review 70:
+Title: One Star
+Text: ended up being ripped off.  this cost me $300 - However, it was not Amazon's fault.  I was scammed by a 3rd party. Just beware...
+
+Review 71:
+Title: they do not answer the phone # they provide
+Text: set up golf time at course on their list, two days before, submitted info to their on line sight, only to find out at the course that that course no longer accepts their card do to problems of not getting paid!!
+
+Review 72:
+Title: Xmas gift for my mom
+Text: Works like a gift card should. It's really hard to shop for my mom since she is alway's doing something different! A gift card to her favorite store should do the trick!
+
+Review 73:
+Title: Reload
+Text: This is a great way to reload your amazon account but if you have any issues there’s really no way to contact help, but that’s basically amazon in general.
+
+Review 74:
+Title: It works
+Text: Meh
+
+Review 75:
+Title: Five Stars
+Text: Great!
+
+Review 76:
+Title: lost in the mail!
+Text: to late to give as a gift
+
+Review 77:
+Title: Unable to use full gift amount.
+Text: Unable to use $100 gift card after spending only $13.56 of it.
+
+Review 78:
+Title: Five Stars
+Text: great gift
+
+Review 79:
+Title: Five Stars
+Text: Bought this for my assistant.  She buys from Amazon often and was excited to buy more.
+
+Review 80:
+Title: Guaranteed one-day shipping
+Text: I ordered three gift cards for a friend who was moving and selected one-day shipping, with the gift cards set to arrive the day before she was due to leave, so she and her son had gift cards to use for meal stops along the journey. She was to leave in the morning, as one does when they are moving 15 hours away, but instead of having the gift cards with her they were still on the fedex truck until 12:30pm. The one-day "guaranteed" shipping did not happen. There was no bad weather. There was no holiday rush. When contacted about the delay, there was no reason for why they failed to be delivered by the promised time. Just that they failed to be dispatched with any promptness, and from then on failed to be treated with any of the urgency one might expect with "guaranteed one-day shipping". I got my shipping fees refunded. Well that was nice of them, wasn't it?
+
+Review 81:
+Title: recipients of gift cards are told the cards are invalid & they try to use them immediately
+Text: Over the past few months, I have purchase various gift cards for my grandchildren.  I believe one may have been Jersey Mike's, another Wild Buffalo Wings, and two from Starbucks.  When they try to use them, the retailers tell them they are not activated or valid and cannot be used.  So, I have spent all of this money, and the cards cannot be used.  I am not sure if they still have the older ones or if they tossed them when told they were invalid, but one for Buffalo Wild Wings and one of the Starbucks cards just got delivered today.  Can you please tell me what they have to do to have the cards be valid?  Your prompt attention toward a resolution of this matter would be greatly appreciated.  Let me thank you in advance for all of your time and help.
+
+Review 82:
+Title: The gift box was beautiful and well decorated.
+Text: I would buy this again, but ask for a different box!
+
+Review 83:
+Title: One of them has no $ on it
+Text: Can’t use it sent to grandson
+
+Review 84:
+Title: Difficult to determine value
+Text: I bought 6-$50 and 5-$25 gift cards. They all came in one box. I could not determine which were the $50 and which the $25. I finally saw where I could match the serial number with the ones on the packing slip. I think it would have been much better to put each value in a separate envelope
+
+Review 85:
+Title: If this is a gift, you're going to want to buy two; one for them and one for you!
+Text: Firehouse Subs is spectacular! Their tasty subs come with steamed meat, "fully involved" fresh ingredients, and perfectly toasted bread, making for a great meal any time of the day. In addition, they have a great selection of hot sauces in the store if you like your sandwiches to have a little "kick." Try this place and you'll be hooked (and laddered)! Yum!
+
+Review 86:
+Title: Three Stars
+Text: it's a gift certificate, for heaven's sake
+
+Review 87:
+Title: Christmas gift
+Text: It was a Christmas gift...
+
+Review 88:
+Title: Three Stars
+Text: Thanks
+
+Review 89:
+Title: Great Idea, problem with implementation
+Text: A friend told me how convenient these Amazon Gift Cards are. I ordered one for a graduate. It was delivered on time, but the gift message I requested was not inserted into the gift. The recipients had no idea where the card came from. Luckily, they called Amazon for help and then contacted me for verification. I was embarrassed and not likely to use these gift cards again.
+
+Review 90:
+Title: The snowflake tin was a nice decorative addition to contain the gift card.
+Text: The recipient of the gift card was surprised to find that Amazon gift cards came with a tin as the "wrapping".
+
+Review 91:
+Title: Gift card designed to fail
+Text: I will never buy a gift card from amazon for anyone! This is card is poorly designed when you  scratch off the code the whole sticker comes off!!! Had talk to a lady for 20 mins to only tell me i have to wait another two days to use my card so they can send me my code through email!! Wow another way to get more money by people not wanting to to take time out of there day just to get a code! Never will buy gift card for this company :/
+
+Review 92:
+Title: Two Stars
+Text: c
+
+Review 93:
+Title: Used to be better
+Text: You used to get a bonus when adding $100 or more to your gift card, but not anymore. So I don't see any advantage now, It's easier just to use a debit or credit card at checkout.
+
+Review 94:
+Title: Five Stars
+Text: Easy and fast
+
+Review 95:
+Title: Cute Idea But Damaged Box
+Text: The idea seems very cute but too bad the box came damaged (there was a rip in it).
+
+Review 96:
+Title: Better read the fine print
+Text: Was offered $10 bonus for adding $100 in gift cards.  Did it once, received bonus.  Checked balance and it increased $110.  Indicated I could do the process again, so I did.  Checked gift card balance again, it only went up an additional $100.  Guess what - no bonus.  Seems you can only get the bonus once.  I feel misled by Amazon!
+
+Review 97:
+Title: Excellent feature
+Text: I used it a lot in the year i've been buying on amazon and it helped me a lot
+
+Review 98:
+Title: are these real?
+Text: trying to redeem gift card for hours now: gift card numbers dont match up with celebrity system.  there are too many numbers. celebrity cannot find this gift card in their system.
+
+Review 99:
+Title: Its great having extra for the purchase
+Text: So glad it was available!!
+
+Review 100:
+Title: hardly "instant", but the only way to do multiple pay sources
+Text: Took so long that I had to send in a trouble ticket, but was fixed right away once I did.
+
+Review 101:
+Title: Not what they said
+Text: I ordered these on prime day. The cards showed up really fast like it said it would.  Love that. However,  there was supposed be a $10 promotional code. Didn't get one. I will use the cards because they are for the same value I paid for them.  Just not happy they didn't come with the promised promo code.
+
+Review 102:
+Title: I like and admire Whole Foods, however
+Text: most people I know think they are too expensive.  We use them for certain things.  I won't give these again as a gift because you don't get that much for $50.00 and I gave them to college students.
+
+Review 103:
+Title: Always a great gift!
+Text: Having trouble deciding on a gift?  Gift cards are perfect for that!!!
+
+Review 104:
+Title: Was my fault, didn’t mean to order
+Text: I called right away they took this off my charge card, took a few days, I made the mistake to order this
+
+Review 105:
+Title: Five Stars
+Text: Cute packaging
+
+Review 106:
+Title: Disappointed in condition
+Text: Card holder was dirty and bent. Going to be a gift so I scratched  off code to check balance, which was valid. Surprised they would send out a card looking like this one.
+
+Review 107:
+Title: Five Stars
+Text: It was so easy
+
+Review 108:
+Title: IT TOOK THREE TRIES TO UPLOAD AND THEN I COULD ...
+Text: IT TOOK THREE TRIES TO UPLOAD AND THEN  I COULD ONLY RELOAD ON GIFT CARD ....IT WAS A REAL PAIN
+
+Review 109:
+Title: Easy
+Text: Easy
+
+Review 110:
+Title: Love this
+Text: Loved everything about this and it is free for the holder…that’s wonderful
+
+Review 111:
+Title: It's good for a last minute gift
+Text: I mean this is a gift card purchase. It's good for a last minute gift.
+
+Review 112:
+Title: Cute way to send a gift card
+Text: I love that Amazon includes these super cute gift card holders, without charging separately for them. Even though I'm sending a gift card, I still want the packaging to be sort of cute. Love these cupcakes!
+
+Review 113:
+Title: Very difficult to find out the value of each card. 2 in the box with different values
+Text:  
+
+Review 114:
+Title: It’s a nicely e-shopping experience on Amazon and also their providing customer service to me.
+Text: Like to buy hiking shoe which the size may not find in Taiwan and also good to be Thanksgiving gifts
+
+Review 115:
+Title: Cute, not functional
+Text: Bought this gift card for a teacher. I loved how adorable this gift card holder looked. The only downside to the ornament is the hook wasn’t very big so I don’t think it would actually hang on a tree. Overall, I thought this was a good purchase.
+
+Review 116:
+Title: I love the floral box but I'm not a fan of ...
+Text: I love the floral box but I'm not a fan of the fact that the card itself does not show the amount
+
+Review 117:
+Title: Damaged
+Text: All three of the tins were damaged! The cards are paper so even pulling them out looks so cheap. So upset! Price is also not printed so have to write it on.
+
+Review 118:
+Title: Five Stars
+Text: thanks
+
+Review 119:
+Title: Three Stars
+Text: gfh
+
+Review 120:
+Title: Five Stars
+Text: whats not to love about amazon gift cards?
+
+Review 121:
+Title: Didn't work when I tried to upload to the Xbox.
+Text: I was not able to use the card that I had gotten.. It would not put the money on the account.
+
+Review 122:
+Title: but I never received it so felt like being fooled
+Text: cards arrived okay, but it was advertised for $10 gift card, but I never received it so felt like being fooled!
+
+Review 123:
+Title: Three Stars
+Text: Written to keep a reader's interest
+
+Review 124:
+Title: First time for everything.
+Text: The cards were not delivered as stated.  UPS - signed by driver release.  This is inappropriate.  I cannot afford to lose the amount paid for gift cards. I do have serial numbers. This order was place on Nov. 28, 2018. Quebell Crank
+
+Review 125:
+Title: There's no place to write sender/receiver names or a short message. But the red packaging looks cute.
+Text: There's no place to write sender/receiver names or a short message. But the red packaging looks cute.
+
+Review 126:
+Title: Great products, delivered on time and safely
+Text: I like all products and the way they were delivered very fast and safely
+
+Review 127:
+Title: Three Stars
+Text: Gift.
+
+Review 128:
+Title: Great gift for college students
+Text: I bought 8 cards for my college student for Christmas, he was so excited but we could use but the 8 one refuses to work. Yes checked all cards 3 times. Yes, double checked numbers still it will not work so buy 8 at 25 each and lose 1 $ 25.00 so pay for 8 but only get 7.
+
+Review 129:
+Title: Ok
+Text: Why would I rate a gift card that I put on here-makes no sense
+
+Review 130:
+Title: Good way to send gifts
+Text: Gift card is great and was delivered on time.  The card telling who it was from didn't make it into the package and it was an accident I found out.  They made the statement someone sent us $50 and we have no idea who.
+
+Review 131:
+Title: That order is correct and mine not
+Text: I wrote 3 individual notes to my grandkids and only 2 where I closed. Very disappointed
+
+Review 132:
+Title: The card was fine..
+Text: The card was fine...it's a card. The shipping was a joke. Was supposed to arrive the following day for a gift. Took almost two weeks
+
+Review 133:
+Title: It works
+Text: It worked for me at Walmart and dollar general
+
+Review 134:
+Title: I live in P.R. and I got it withing a week.
+Text: It was a gift for a friend.
+
+Review 135:
+Title: Three Stars
+Text: ok
+
+Review 136:
+Title: Amazon gift card reload.
+Text: It's a trick. Nothing else. Why does one need to reload a gift card?
+
+Review 137:
+Title: Five Stars
+Text: love it; thanks a million to My Amazon
+
+Review 138:
+Title: Why didn't I receive my extra $10 for adding $100 to acct balance
+Text: Why did it not give me the $10 extra for my balance being $100 like it said
+
+Review 139:
+Title: Fraud!
+Text: I purchased this card for Christmas and can’t use it! The card has been voided!
+
+Review 140:
+Title: Easy to use
+Text: Easy to use, home goodsExcellent
+
+Review 141:
+Title: Nice
+Text: Nice
+
+Review 142:
+Title: Could never get it tow work
+Text: Could never get this one to work
+
+Review 143:
+Title: Survey not worth it.
+Text: The Survey I had to take was not worth it.
+
+Review 144:
+Title: VISA GIFT CARDS MUST BE DELETED FROM ACCOUNT AFTER USING TO RELOAD FUNDS
+Text: I routinely add visa gift cards that my kids get as gifts to my amazon account and then give them cash.  This makes it easier to spend them and you don't have to worry about partial balances.  However, you must add t6he visa gift card as a payment type to your account and then you have to manually delete it later from a different web page.  Why not allow these visa gift cards to be deleted directly from the reload page?
+
+Review 145:
+Title: Five Stars
+Text: Gift for brother-in-law.
+
+Review 146:
+Title: Very cute!!
+Text: My niece will love this!!
+
+Review 147:
+Title: Two Stars
+Text: Bad Deal!! You pay over 10 to receive a 10 gift card.  Best to buy at store
+
+Review 148:
+Title: I was unable to use it at a restaurant. It kept saying invalid
+Text: I was unable to use it at a restaurant. It kept saying invalid
+
+Review 149:
+Title: Fun
+Text: Fun to give
+
+Review 150:
+Title: Lable the value.
+Text: We bought 3 cards of different values and we could figure out which one was what. Needs to be labeled values

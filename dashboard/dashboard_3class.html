@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Three-Class Review-Sentiment Scorecard</title>
+<style>
+:root{--bg:#131209;--surface:#1d1b11;--surface-2:#262317;--line:rgba(237,231,214,.11);
+ --ink:#ece6d5;--muted:#a79f8c;--faint:#7d7667;--pos:#94bd8b;--neu:#d9b95f;--neg:#dc9185;
+ --pos-ink:#131209;--neg-ink:#131209;--neu-ink:#1a1710;
+ --display:"Georgia","Times New Roman",serif;--ui:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+ --mono:"SF Mono","Cascadia Mono",Consolas,monospace;--accent:#e0a658;--accent-ink:#1a1710;
+ --pos-soft:rgba(148,189,139,.12);--neu-soft:rgba(217,185,95,.13);--neg-soft:rgba(220,145,133,.12)}
+:root[data-theme="light"]{--bg:#f2eee3;--surface:#fbf8f0;--surface-2:#e9e3d3;--line:rgba(48,42,30,.13);
+ --ink:#242016;--muted:#6d6657;--faint:#99917f;--pos:#3f7a45;--neu:#8a6d1f;--neg:#a84d3e;
+ --pos-ink:#f6f4ec;--neg-ink:#f8f3ef;--neu-ink:#f8f3ef;--accent:#b1752a;--accent-ink:#f8f4ea;
+ --pos-soft:rgba(63,122,69,.13);--neu-soft:rgba(138,109,31,.14);--neg-soft:rgba(168,77,62,.13)}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);line-height:1.45;-webkit-font-smoothing:antialiased;font-size:15px}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 28px 80px}
+.mast{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;
+ padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:26px}
+.mast .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin:0 0 8px}
+.mast h1{font-family:var(--display);font-weight:500;font-size:29px;margin:0;letter-spacing:-.01em}
+.mast .sub{color:var(--muted);margin:6px 0 0;font-size:13.5px;max-width:660px}
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.ctrl-group{display:flex;align-items:center;gap:7px}
+.ctrl-group .lbl{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint)}
+.btn{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--muted);
+ font-family:var(--ui);font-size:12.5px;padding:7px 12px;border-radius:8px;cursor:pointer;transition:color .12s,background .12s}
+.btn:hover{color:var(--ink)}
+.btn[aria-pressed="true"]{color:var(--accent-ink);background:var(--accent);border-color:var(--accent)}
+.sw{width:18px;height:18px;border-radius:50%;border:2px solid var(--surface);cursor:pointer;padding:0;display:inline-block}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.kpi .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.kpi .val{font-family:var(--display);font-size:33px;line-height:1.05;margin:7px 0 2px}
+.kpi .val small{font-size:16px;color:var(--muted);font-family:var(--ui)}
+.kpi .note{font-size:12px;color:var(--muted)}
+.kpi.agree .val{color:var(--accent)}.kpi.p .val{color:var(--pos)}.kpi.nu .val{color:var(--neu)}.kpi.n .val{color:var(--neg)}
+.grid{display:grid;grid-template-columns:6fr 6fr;gap:14px;margin-bottom:14px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.panel h3{margin:0 0 2px;font-family:var(--display);font-weight:500;font-size:17px}
+.panel .hint{font-size:11.5px;color:var(--faint);margin:0 0 14px}
+.cm{display:grid;grid-template-columns:auto 1fr 1fr 1fr;gap:8px;font-size:12px}
+.cm .clabel{display:flex;flex-direction:column;justify-content:center;padding-right:6px}
+.cm .clabel b{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.cm .clabel small{color:var(--faint)}
+.cm .corner{font-family:var(--mono);font-size:10px;color:var(--faint);align-self:flex-end;margin-bottom:4px;text-transform:uppercase}
+.colh{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);text-align:center;padding-bottom:4px}
+.cm .cell{border:1px solid var(--line);border-radius:9px;padding:11px;min-height:60px;display:flex;flex-direction:column;justify-content:center}
+.cm .cell .v{font-family:var(--display);font-size:24px;line-height:1}
+.cm .cell .d{font-size:10.5px;color:var(--muted);margin-top:2px}
+.cm .off{background:var(--neg-soft);border-color:color-mix(in srgb,var(--neg) 45%,transparent)}
+.cm .off .v{color:var(--neg)}
+.cm .yes{background:var(--pos-soft);border-color:color-mix(in srgb,var(--pos) 40%,transparent)}
+.cm .yes .v{color:var(--pos)}
+.leak{display:flex;flex-direction:column;gap:11px}
+.leakbar{display:grid;grid-template-columns:110px 1fr 34px;align-items:center;gap:10px;font-size:12px}
+.leakbar .lab{color:var(--muted)}
+.leakbar .track{height:16px;background:var(--surface-2);border-radius:8px;overflow:hidden;display:flex}
+.leakbar .track i{display:block;height:100%}
+.leakbar .n{font-family:var(--mono);color:var(--muted)}
+.verdict{grid-column:1/-1;display:flex;gap:14px;align-items:flex-start;background:var(--surface);
+ border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.verdict .mark{flex:0 0 auto;font-family:var(--display);color:var(--accent);font-size:20px;line-height:1.2}
+.verdict p{margin:0;font-size:13.5px;color:var(--muted)}
+.verdict b{color:var(--ink)}
+.dgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px}
+.dpanel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.dpanel h3{margin:0 0 2px;font-family:var(--display);font-weight:500;font-size:16px}
+.dpanel .hint{font-size:11.5px;color:var(--faint);margin:0 0 14px}
+.hbar{display:grid;grid-template-columns:34px 1fr 40px;align-items:center;gap:10px;margin:9px 0;font-size:12.5px}
+.hbar .lbl{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right}
+.hbar .track{height:16px;background:var(--surface-2);border-radius:8px;overflow:hidden;position:relative}
+.hbar .fill{display:block;height:100%;border-radius:8px;min-width:2px;background:var(--accent);width:0;transition:width .5s ease}
+.hbar .cnt{font-family:var(--mono);font-size:12px;color:var(--ink)}
+.double{margin:13px 0}
+.double .cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+.double .row{display:grid;grid-template-columns:64px 1fr 34px;align-items:center;gap:10px;margin:5px 0;font-size:12px}
+.double .row .glab{color:var(--muted);font-size:11px}
+.double .row .track{height:13px;background:var(--surface-2);border-radius:7px;overflow:hidden}
+.double .row .fill{display:block;height:100%;border-radius:7px;min-width:2px;width:0;transition:width .5s ease}
+.double .row .fill.true{background:var(--faint)}
+.double .row .fill.pred{background:var(--accent)}
+.double .row .n{font-family:var(--mono);font-size:11.5px;color:var(--ink)}
+.attr{font-size:11px;color:var(--faint);margin-top:10px;line-height:1.5}
+.table-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:26px 0 12px}
+.table-head h2{margin:0;font-family:var(--display);font-weight:500;font-size:19px}
+.filters{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.filters input[type=search]{background:var(--surface);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:7px 11px;font-size:12.5px;width:210px}
+.rescount{font-family:var(--mono);font-size:11px;color:var(--faint);margin-right:4px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);
+ text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+tbody td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:hover{background:color-mix(in srgb,var(--surface) 55%,transparent)}
+td.num{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap}
+td.title{font-weight:600;min-width:140px}
+td.text{max-width:420px;color:var(--muted)}
+td.text .ex{max-height:3.5em;overflow:hidden;display:block}
+td.text.open .ex{max-height:none}
+.toggle{color:var(--faint);cursor:pointer;font-family:var(--mono);font-size:11px}
+.chan{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:6px;border:1px solid var(--line)}
+.chan.P{color:var(--neg);border-color:color-mix(in srgb,var(--neg) 45%,transparent);background:var(--neg-soft)}
+.chan.N{color:var(--pos);border-color:color-mix(in srgb,var(--pos) 45%,transparent);background:var(--pos-soft)}
+.empty{padding:26px;text-align:center;color:var(--faint);font-size:13px}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.dgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body><div class="wrap">
+<div class="mast">
+  <div>
+    <p class="kicker">Amazon Gift Cards · 2023 · three-class · balanced (seed 2026)</p>
+    <h1>Three-Class Sentiment Scorecard</h1>
+    <p class="sub">A Qwen3.6-35B classifier reads only <b>title + text</b> and returns POSITIVE / NEUTRAL / NEGATIVE.
+    It never sees the rating. A balanced, seed-fixed sample of <b>150 reviews (50 per class)</b> is scored against the rubric
+    <b>4&#8211;5&#9733; = POSITIVE &middot; 3&#9733; = NEUTRAL &middot; 1&#8211;2&#9733; = NEGATIVE</b>.</p>
+  </div>
+  <div class="controls">
+    <div class="ctrl-group"><span class="lbl">Theme</span>
+      <button class="btn" id="tDark" aria-pressed="true">Dark</button>
+      <button class="btn" id="tLight" aria-pressed="false">Light</button></div>
+    <div class="ctrl-group"><span class="lbl">Accent</span>
+      <button class="sw" data-c="#e0a658" style="background:#e0a658"></button>
+      <button class="sw" data-c="#ce7b45" style="background:#ce7b45"></button>
+      <button class="sw" data-c="#6f9bb5" style="background:#6f9bb5"></button>
+      <button class="sw" data-c="#c0544a" style="background:#c0544a"></button></div>
+  </div>
+</div>
+
+<div class="kpis">
+  <div class="kpi agree"><div class="lab">Agreement</div><div class="val" id="kA">&mdash;</div><div class="note" id="kAn"></div></div>
+  <div class="kpi p"><div class="lab">Positive recall</div><div class="val" id="kP">&mdash;</div><div class="note" id="kPn"></div></div>
+  <div class="kpi nu"><div class="lab">Neutral recall</div><div class="val" id="kU">&mdash;</div><div class="note" id="kUn"></div></div>
+  <div class="kpi n"><div class="lab">Negative recall</div><div class="val" id="kN">&mdash;</div><div class="note" id="kNn"></div></div>
+</div>
+
+<div class="grid">
+  <div class="panel">
+    <h3>Confusion (true &times; predicted)</h3>
+    <p class="hint">Diagonal green = correct. Colored = a true review sent to the wrong class.</p>
+    <div class="cm" id="cm"></div>
+  </div>
+  <div class="panel">
+    <h3>Where the 3&#9733; reviews went</h3>
+    <p class="hint">The 50 true-neutral reviews &#8212; do they keep their own class?</p>
+    <div class="leak" id="leak"></div>
+  </div>
+  <div class="verdict">
+    <div class="mark">&#9679;</div>
+    <p id="verdict"></p>
+  </div>
+</div>
+
+<div class="dgrid">
+  <div class="dpanel"><h3>Star distribution</h3><p class="hint">This balanced sample, by star.</p><div id="stars"></div><div class="attr" id="starsAttr"></div></div>
+  <div class="dpanel"><h3>Correct answer vs. predicted</h3><p class="hint">Rubric (dim) vs. model (accent) count per class. Gap = over/under-prediction.</p><div id="vs"></div></div>
+  <div class="dpanel"><h3>How often each class is right</h3><p class="hint">Recall = of true-class caught. Precision = of model-predicted, correct.</p><div id="acc"></div></div>
+</div>
+
+<div class="table-head">
+  <h2>Per-review detail</h2>
+  <div class="filters">
+    <span class="rescount" id="rc"></span>
+    <button class="btn" id="fA" aria-pressed="true">All</button>
+    <button class="btn" id="fOk" aria-pressed="false">Correct</button>
+    <button class="btn" id="fEr" aria-pressed="false">Misclassified</button>
+    <input type="search" id="q" placeholder="Search title or text&hellip;"/>
+  </div>
+</div>
+<table><thead><tr><th>&#9733;</th><th>Verdict</th><th>Title</th><th>Text</th></tr></thead>
+<tbody id="tb"></tbody></table>
+<div class="empty" id="em" style="display:none">No reviews match the filters.</div>
+</div>
+
+<script>
+const DATA=[{"n": 1, "idx": 73450, "title": "Five Stars", "text": "Easy", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 2, "idx": 102696, "title": "Five Stars", "text": "It's good chances to give presents for friends and family.", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 3, "idx": 104778, "title": "Easier!", "text": "Quick and no need to go out to the store to buy a gift card!", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 4, "idx": 105711, "title": "Three Stars", "text": "Good.", "rating": 3.0, "true": "NEUTRAL", "pred": "POSITIVE"}, {"n": 5, "idx": 31167, "title": "20 gift card", "text": "Its a 20 dollar gift cars", "rating": 5.0, "true": "POSITIVE", "pred": "NEUTRAL"}, {"n": 6, "idx": 89200, "title": "Slow Shipping", "text": "It\u2019s a gift card so nothing to really rate, but I\u2019m withholding 2 stars because shipping took forever.", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 7, "idx": 101597, "title": "Doesn't work", "text": "Gift card doesn't work, been trying for a year and a half and it's never worked", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 8, "idx": 146848, "title": "Shame", "text": "$0 gift card send to me I thought I was ordering a $25 gift card! I had to call Amazon to get a new one.", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 9, "idx": 115556, "title": "Five Stars", "text": "Just as described.", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 10, "idx": 136870, "title": "Dirty", "text": "Gift Card is not in the best shape and the gift card holder is dirty. Disappointed in the condition it came in for a gift for someone else", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 11, "idx": 21279, "title": "Easy to use", "text": "Easy to use", "rating": 3.0, "true": "NEUTRAL", "pred": "POSITIVE"}, {"n": 12, "idx": 106331, "title": "Speedy!", "text": "It processed in 10 minutes. It was very useful and it was VERY quick!", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 13, "idx": 110980, "title": "not activated", "text": "wont let me use it", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 14, "idx": 149372, "title": "Useless, if you can't load the gift cards!!", "text": "Not sure if it's just me, but I can't figure out where to access the scanner to activate. The cards I purchased don't have a serial number and the customer service person didn't have a clue! Can someone tell me where the QR code scanner is located??", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 15, "idx": 39682, "title": "Gift", "text": "Grandson liked the card and I don't think it mattered what it came in.  I did like the design of the box though and it added a little something to just a card....", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 16, "idx": 43570, "title": "Extra postage required", "text": "It would have been helpful for Amazon to inform the buyer that mailing this gift card requires extra postage. I put it in a regular greeting card with two stamps. The recipient had to pay $3.40 when it was delivered. This is unacceptable. A heads up would have been greatly appreciated. It is cute, but not $4.60 worth of postage cute. Reading other reviews about a gift receipt not being included when it is shipped from Amazon is not a very good option in my opinion.", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 17, "idx": 147688, "title": "mORE!!!", "text": "Wish you had more cards", "rating": 3.0, "true": "NEUTRAL", "pred": "POSITIVE"}, {"n": 18, "idx": 67818, "title": "Not What I Expected", "text": "Did not receive bookmark sleeve or the ribbon in stock photos<br /><br />Code is on the back of the bookmark. From the photos thought it was a separate card or voucher. Fell odd when in use; when you flip it over, you see the gift card amount and bar codes. Guess it can be a motivator to finish a book, rewarding yourself after it's done, but only can be used once.<br /><br />Code redemption is a scratch off which is disappointing. Thought they went pass that, and gone with a peel off design. Must have a coin or key handy.<br /><br /> If you use the amazon app you can redeem the amount in seconds: click the camera option and align the boxes with the text code.<br /><br />Shows the amount on the back of the bookmark, so no surprises.<br /><br />Quality of the bookmark is good. Sturdy plastic. Slightly thinner than regular Amazon Gift Card. Is tear-proof, but can be cut with scissors.<br /><br />Essentially just an Amazon Gift Card but in a different form factor: in a shape that can be used as a bookmark", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 19, "idx": 97614, "title": "To remember to pay after you use all of it.", "text": "It was very cool.", "rating": 3.0, "true": "NEUTRAL", "pred": "POSITIVE"}, {"n": 20, "idx": 145131, "title": "Take one biz day to reload your balance.", "text": "It takes time to reload your balance, even though your order mail said \u201c Typically your balance is updated within 5 minutes of your order\u201d. I have contacted the customer service and it said that usually takes 1 business day to reload. Quite a misleading wording from the gift card section in Amazon.", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 21, "idx": 27574, "title": "Great, thanks", "text": "Great, thanks", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 22, "idx": 103642, "title": "Not all Cards work", "text": "Bought Subwayway gift cards as a gift for Christmas. Sent them to Granddaughter on Michigan. One of the gift cards did not work. Was not any good.", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 23, "idx": 33548, "title": "Everyone loves an Amazon card", "text": "Makes for a great gift, love the package and ships perfectly", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 24, "idx": 55720, "title": "Policy issue", "text": "Bought because steam cards were unavailable on Amazon. Wanted to use Best Buy to purchase Steam. Best Buy wouldn\u2019t allow them to be used for that purpose.", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 25, "idx": 101989, "title": "Good", "text": "How can I return  my money to my bank.", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 26, "idx": 130406, "title": "It worked. No problems.", "text": "It worked a solid expected. Nothing about it to make me think that it exceeded my expectations so three stars it is. Maybe offer more increments?", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 27, "idx": 79199, "title": "The envelope is ripped", "text": "The envelope is ripped. This is a supposed to be a gift...", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 28, "idx": 134854, "title": "OMG the most amazing, incredible thing ever", "text": "OMG the most amazing, incredible thing ever... Oh wait they are just plastic ordinary gift cards; but I did receive an Amazon promo credit.  5 stars it is.", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 29, "idx": 133577, "title": "No gift receipt. Can\u2019t verify amout", "text": "No gift receipt in box. Can\u2019t verify amount. Will return", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 30, "idx": 109276, "title": "not presentable", "text": "This card was delivered to me all messed up with scratches and black markings and was sticky.  I will use it for myself but I cannot give it as a present.", "rating": 2.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 31, "idx": 116689, "title": "Glad to have the service but the process seems arcane and confusing", "text": "In attempting to reload a Gift Card Balance, I was very uncertain and unsure as to the pathway and the process.  It could be more user friendly and reassuring.  That said, it all worked out OK.", "rating": 2.0, "true": "NEGATIVE", "pred": "NEUTRAL"}, {"n": 32, "idx": 144470, "title": "Five Stars", "text": "Great service and product!", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 33, "idx": 25209, "title": "Cute presentation", "text": "Sooo cute", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 34, "idx": 2441, "title": "Hotels. com restricts gift card use to specific hotels ...", "text": "Hotels.com restricts gift card use to specific hotels.", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 35, "idx": 12262, "title": "Card was declined!  Useless!", "text": "I was unable to use this Pizza Hut gift card.  I ordered pizza and pasta online but card was declined.  I tried entering different numbers on the back of the card but nothing worked.  Could the number be underneath the blocked out area?  Very disappointed.  Marilyn", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 36, "idx": 115270, "title": "Got some prepaid cards lying around that can fulfill a ...", "text": "Got some prepaid cards lying around that can fulfill a full purchase? Put them in your amazon account! Every dollar counts!", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 37, "idx": 118773, "title": "I was riped off", "text": "I bought a Texas Roadhouse gift card for my friend.  she tried to use it today 5/2/2019  was no balance  how embarrasing  please send new GOOD one or return my $50  not happy<br /><br />Corena Stiffler", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 38, "idx": 59194, "title": "I was disappointed because I incorrectly reloaded my gift card", "text": "I was disappointed because I incorrectly reloaded my gift card, and then I sent in a message asking to have the reload rescinded and my credit card credited.  However, no action was ever taken, and the reload remained on my account.  Rather than to pursue it any further, I decided to 'let it go,' but I was not happy with the outcome.", "rating": 2.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 39, "idx": 89976, "title": "Five Stars", "text": "Conveniently used for PlayStore Card! ;-)", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 40, "idx": 101225, "title": "Nice way to gift", "text": "Nice way to gift to friends and family", "rating": 3.0, "true": "NEUTRAL", "pred": "POSITIVE"}, {"n": 41, "idx": 133695, "title": "Ten Tin", "text": "The recipient thoroughly enjoyed the tin.", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 42, "idx": 138294, "title": "Damaged Card", "text": "Card arrive all damage and looked like it can out of a dumpster somewhere.", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 43, "idx": 13576, "title": "OK", "text": "OK", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 44, "idx": 107382, "title": "Three Stars", "text": "you can never go wrong for a gift card", "rating": 3.0, "true": "NEUTRAL", "pred": "POSITIVE"}, {"n": 45, "idx": 39449, "title": "I ordered what I thought would be a nice tin case for the gift card", "text": "I ordered what I thought would be a nice tin case for the gift card. No. One corner of the tin was smashed in, three more dents on the top of the tin and multiple scratches on both the top and the bottom. The tin came in a well-padded envelope, so I have to assume that the tin was in poor condition when Amazon packed it.", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 46, "idx": 133516, "title": "Damaged box", "text": "[[VIDEOID:596ff2669773a7c422333cc8d4911df9]] I bought 2 each $100 for my family, one of them arrived damage box, inside the giftcard look bending like they force it to fit the box. This is a gift, the look is matter. Since it is near Chrismas so I can\u2019t replace it otherwise it is going to arrived after Chrismas. So disappointed.", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 47, "idx": 75376, "title": "Card ripped out of holder", "text": "This is a gift\u2026. There\u2019s no gift receipt and card is all ripped up.", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 48, "idx": 9779, "title": "Card", "text": "This card was sent to me and it wasn't authorized. I was embarrassed at the restaurant.  I have since been given my money back and told I could use it anyway. Itd not authorized", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 49, "idx": 150888, "title": "Annoying but. Ok\ud83d\ude44", "text": "Takes forever for the order to process out of my account.", "rating": 1.0, "true": "NEGATIVE", "pred": "NEUTRAL"}, {"n": 50, "idx": 82997, "title": "worst gift package", "text": "The gift card package was torn and not in good condition.", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 51, "idx": 106322, "title": "Long processing 4-5 days before it's available on your account. Beware", "text": "The processing took 4 -5 days before it's complete. I can't gift a gift card with that long over processing time. Please fix it", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 52, "idx": 95859, "title": "I did not want to RELOAD !", "text": "I finally used my $100 gift card and the last thing I wanted to do was RELOAD another gift card!!!  It was so unclear how to just use my gift card and be done!  I believe YOU made me RELOAD another $100, which was not what I wanted to do.  I only wanted to use the card I had and then I spent 30 minutes on the phone trying to decline the new card which you would not authorize so I had another $100 gift card I did not want but automatically charged to my CC.  I don't want anyone to get me another $100 Gift Card from AMAZON!  Thank you!!!!", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 53, "idx": 144272, "title": "They loved it!", "text": "This was a gift for my son and daughter-in-law. They loved it !", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 54, "idx": 107951, "title": "EASY TO STEAL.. YOUR  AMAZON MAIL ORDER CARD NUMBER DID NOT WORK..???", "text": "EASY TO STEAL.. YOUR  AMAZON MAIL ORDER CARD NUMBER DID NOT WORK..???", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 55, "idx": 94255, "title": "Former way too add funds to amz balance was MUCH easier.", "text": "AMZ changed mode of loading funds into acct bal - this New way much more difficult. They (AMZ) \"fixed\" something for the Customer that was NOT broken.", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 56, "idx": 121477, "title": "Thank you", "text": "Best card ever", "rating": 1.0, "true": "NEGATIVE", "pred": "POSITIVE"}, {"n": 57, "idx": 32806, "title": "Trustworthy", "text": "Pretty box", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 58, "idx": 703, "title": "Works", "text": "Thank You", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 59, "idx": 107770, "title": "Late", "text": "Ordered 3 other items, all got here in record time...except the 4th item a gift card which did not show up at all.", "rating": 2.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 60, "idx": 86654, "title": "gift card", "text": "It was fine to send as agift", "rating": 3.0, "true": "NEUTRAL", "pred": "POSITIVE"}, {"n": 61, "idx": 100147, "title": "Amazon.com Gift Card Balance Reload", "text": "I received you payment method from Marriott Rewards.", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 62, "idx": 143242, "title": "One Star", "text": "Easy to order & what the couple requested. Quick service!", "rating": 1.0, "true": "NEGATIVE", "pred": "POSITIVE"}, {"n": 63, "idx": 91, "title": "Okay as a gift", "text": "After I bought several I realized I could have sent \"gift\" money via text without the fees or wait.", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 64, "idx": 97920, "title": "Five Stars", "text": "Loved it.", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 65, "idx": 3196, "title": "It\u2019s a gift card", "text": "It\u2019s a gift card, there is nothing else to say.", "rating": 5.0, "true": "POSITIVE", "pred": "NEUTRAL"}, {"n": 66, "idx": 148342, "title": "Game Stop", "text": "I was satisfied with the promptness of receiving the gift card. It's great not to have to run around and it saves on gas.", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 67, "idx": 112409, "title": "Amount not correct", "text": "I ordered two of these at $25 each (was appropriately charged and order history matches this).  They went to my best friend's two children, and when she went to use them, one had $42.03 and the other had $0.  The kids missed out on $7.97, and luckily I gave them to the same family, so mom was able to split the amount between the two children.  Had I gifted them to anyone other than my best friend this would have been highly embarrassing.  I will never order again.", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 68, "idx": 108582, "title": "Easy to send", "text": "Sent as a gift", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 69, "idx": 80153, "title": "No $10 Rebate Received!!!!", "text": "Said I was going to get $10 credit for putting hundred dollars on gift card. However it did not give me the $10.", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 70, "idx": 56154, "title": "One Star", "text": "ended up being ripped off.  this cost me $300 - However, it was not Amazon's fault.  I was scammed by a 3rd party. Just beware...", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 71, "idx": 109776, "title": "they do not answer the phone # they provide", "text": "set up golf time at course on their list, two days before, submitted info to their on line sight, only to find out at the course that that course no longer accepts their card do to problems of not getting paid!!", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 72, "idx": 63267, "title": "Xmas gift for my mom", "text": "Works like a gift card should. It's really hard to shop for my mom since she is alway's doing something different! A gift card to her favorite store should do the trick!", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 73, "idx": 100045, "title": "Reload", "text": "This is a great way to reload your amazon account but if you have any issues there\u2019s really no way to contact help, but that\u2019s basically amazon in general.", "rating": 4.0, "true": "POSITIVE", "pred": "NEUTRAL"}, {"n": 74, "idx": 103393, "title": "It works", "text": "Meh", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 75, "idx": 28862, "title": "Five Stars", "text": "Great!", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 76, "idx": 111749, "title": "lost in the mail!", "text": "to late to give as a gift", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 77, "idx": 65813, "title": "Unable to use full gift amount.", "text": "Unable to use $100 gift card after spending only $13.56 of it.", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 78, "idx": 128658, "title": "Five Stars", "text": "great gift", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 79, "idx": 83224, "title": "Five Stars", "text": "Bought this for my assistant.  She buys from Amazon often and was excited to buy more.", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 80, "idx": 133927, "title": "Guaranteed one-day shipping", "text": "I ordered three gift cards for a friend who was moving and selected one-day shipping, with the gift cards set to arrive the day before she was due to leave, so she and her son had gift cards to use for meal stops along the journey. She was to leave in the morning, as one does when they are moving 15 hours away, but instead of having the gift cards with her they were still on the fedex truck until 12:30pm. The one-day &#34;guaranteed&#34; shipping did not happen. There was no bad weather. There was no holiday rush. When contacted about the delay, there was no reason for why they failed to be delivered by the promised time. Just that they failed to be dispatched with any promptness, and from then on failed to be treated with any of the urgency one might expect with &#34;guaranteed one-day shipping&#34;.<br />I got my shipping fees refunded. Well that was nice of them, wasn't it?", "rating": 2.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 81, "idx": 148180, "title": "recipients of gift cards are told the cards are invalid & they try to use them immediately", "text": "Over the past few months, I have purchase various gift cards for my grandchildren.  I believe one may have been Jersey Mike's, another Wild Buffalo Wings, and two from Starbucks.  When they try to use them, the retailers tell them they are not activated or valid and cannot be used.  So, I have spent all of this money, and the cards cannot be used.  I am not sure if they still have the older ones or if they tossed them when told they were invalid, but one for Buffalo Wild Wings and one of the Starbucks cards just got delivered today.  Can you please tell me what they have to do to have the cards be valid?  Your prompt attention toward a resolution of this matter would be greatly appreciated.  Let me thank you in advance for all of your time and help.", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 82, "idx": 123837, "title": "The gift box was beautiful and well decorated.", "text": "I would buy this again, but ask for a different box!", "rating": 5.0, "true": "POSITIVE", "pred": "NEUTRAL"}, {"n": 83, "idx": 136770, "title": "One of them has no $ on it", "text": "Can\u2019t use it sent to grandson", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 84, "idx": 64976, "title": "Difficult to determine value", "text": "I bought 6-$50 and 5-$25 gift cards. They all came in one box. I could not determine which were the $50 and which the $25. I finally saw where I could match the serial number with the ones on the packing slip. I think it would have been much better to put each value in a separate envelope", "rating": 1.0, "true": "NEGATIVE", "pred": "NEUTRAL"}, {"n": 85, "idx": 21428, "title": "If this is a gift, you're going to want to buy two; one for them and one for you!", "text": "Firehouse Subs is spectacular! Their tasty subs come with steamed meat, &#34;fully involved&#34; fresh ingredients, and perfectly toasted bread, making for a great meal any time of the day. In addition, they have a great selection of hot sauces in the store if you like your sandwiches to have a little &#34;kick.&#34; Try this place and you'll be hooked (and laddered)! Yum!", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 86, "idx": 114178, "title": "Three Stars", "text": "it's a gift certificate, for heaven's sake", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 87, "idx": 91987, "title": "Christmas gift", "text": "It was a Christmas gift...", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 88, "idx": 136343, "title": "Three Stars", "text": "Thanks", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 89, "idx": 40072, "title": "Great Idea, problem with implementation", "text": "A friend told me how convenient these Amazon Gift Cards are. I ordered one for a graduate. It was delivered on time, but the gift message I requested was not inserted into the gift. The recipients had no idea where the card came from. Luckily, they called Amazon for help and then contacted me for verification. I was embarrassed and not likely to use these gift cards again.", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 90, "idx": 116236, "title": "The snowflake tin was a nice decorative addition to contain the gift card.", "text": "The recipient of the gift card was surprised to find that Amazon gift cards came with a tin as the \"wrapping\".", "rating": 1.0, "true": "NEGATIVE", "pred": "POSITIVE"}, {"n": 91, "idx": 127790, "title": "Gift card designed to fail", "text": "I will never buy a gift card from amazon for anyone! This is card is poorly designed when you  scratch off the code the whole sticker comes off!!! Had talk to a lady for 20 mins to only tell me i have to wait another two days to use my card so they can send me my code through email!! Wow another way to get more money by people not wanting to to take time out of there day just to get a code! Never will buy gift card for this company :/", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 92, "idx": 17605, "title": "Two Stars", "text": "c", "rating": 2.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 93, "idx": 19923, "title": "Used to be better", "text": "You used to get a bonus when adding $100 or more to your gift card, but not anymore. So I don't see any advantage now, It's easier just to use a debit or credit card at checkout.", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 94, "idx": 131223, "title": "Five Stars", "text": "Easy and fast", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 95, "idx": 91067, "title": "Cute Idea But Damaged Box", "text": "The idea seems very cute but too bad the box came damaged (there was a rip in it).", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 96, "idx": 129407, "title": "Better read the fine print", "text": "Was offered $10 bonus for adding $100 in gift cards.  Did it once, received bonus.  Checked balance and it increased $110.  Indicated I could do the process again, so I did.  Checked gift card balance again, it only went up an additional $100.  Guess what - no bonus.  Seems you can only get the bonus once.  I feel misled by Amazon!", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 97, "idx": 122792, "title": "Excellent feature", "text": "I used it a lot in the year i've been buying on amazon and it helped me a lot", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 98, "idx": 130741, "title": "are these real?", "text": "trying to redeem gift card for hours now: gift card numbers dont match up with celebrity system.  there are too many numbers. celebrity cannot find this gift card in their system.", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 99, "idx": 146895, "title": "Its great having extra for the purchase", "text": "So glad it was available!!", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 100, "idx": 137340, "title": "hardly \"instant\", but the only way to do multiple pay sources", "text": "Took so long that I had to send in a trouble ticket, but was fixed right away once I did.", "rating": 2.0, "true": "NEGATIVE", "pred": "NEUTRAL"}, {"n": 101, "idx": 127143, "title": "Not what they said", "text": "I ordered these on prime day. The cards showed up really fast like it said it would.  Love that. However,  there was supposed be a $10 promotional code. Didn't get one. I will use the cards because they are for the same value I paid for them.  Just not happy they didn't come with the promised promo code.", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 102, "idx": 120453, "title": "I like and admire Whole Foods, however", "text": "most people I know think they are too expensive.  We use them for certain things.  I won't give these again as a gift because you don't get that much for $50.00 and I gave them to college students.", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 103, "idx": 151432, "title": "Always a great gift!", "text": "Having trouble deciding on a gift?  Gift cards are perfect for that!!!", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 104, "idx": 3890, "title": "Was my fault, didn\u2019t mean to order", "text": "I called right away they took this off my charge card, took a few days, I made the mistake to order this", "rating": 1.0, "true": "NEGATIVE", "pred": "NEUTRAL"}, {"n": 105, "idx": 144505, "title": "Five Stars", "text": "Cute packaging", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 106, "idx": 95862, "title": "Disappointed in condition", "text": "Card holder was dirty and bent. Going to be a gift so I scratched  off code to check balance, which was valid. Surprised they would send out a card looking like this one.", "rating": 2.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 107, "idx": 149584, "title": "Five Stars", "text": "It was so easy", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 108, "idx": 141842, "title": "IT TOOK THREE TRIES TO UPLOAD AND THEN I COULD ...", "text": "IT TOOK THREE TRIES TO UPLOAD AND THEN  I COULD ONLY RELOAD ON GIFT CARD ....IT WAS A REAL PAIN", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 109, "idx": 122275, "title": "Easy", "text": "Easy", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 110, "idx": 68139, "title": "Love this", "text": "Loved everything about this and it is free for the holder\u2026that\u2019s wonderful", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 111, "idx": 63037, "title": "It's good for a last minute gift", "text": "I mean this is a gift card purchase. It's good for a last minute gift.", "rating": 3.0, "true": "NEUTRAL", "pred": "POSITIVE"}, {"n": 112, "idx": 81817, "title": "Cute way to send a gift card", "text": "I love that Amazon includes these super cute gift card holders, without charging separately for them. Even though I'm sending a gift card, I still want the packaging to be sort of cute. Love these cupcakes!", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 113, "idx": 31007, "title": "Very difficult to find out the value of each card. 2 in the box with different values", "text": " ", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 114, "idx": 122071, "title": "It\u2019s a nicely e-shopping experience on Amazon and also their providing customer service to me.", "text": "Like to buy hiking shoe which the size may not find in Taiwan and also good to be Thanksgiving gifts", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 115, "idx": 152010, "title": "Cute, not functional", "text": "Bought this gift card for a teacher. I loved how adorable this gift card holder looked. The only downside to the ornament is the hook wasn\u2019t very big so I don\u2019t think it would actually hang on a tree. Overall, I thought this was a good purchase.", "rating": 5.0, "true": "POSITIVE", "pred": "NEUTRAL"}, {"n": 116, "idx": 7241, "title": "I love the floral box but I'm not a fan of ...", "text": "I love the floral box but I'm not a fan of the fact that the card itself does not show the amount", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 117, "idx": 100860, "title": "Damaged", "text": "All three of the tins were damaged! The cards are paper so even pulling them out looks so cheap. So upset! Price is also not printed so have to write it on.", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 118, "idx": 59564, "title": "Five Stars", "text": "thanks", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 119, "idx": 96034, "title": "Three Stars", "text": "gfh", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 120, "idx": 140634, "title": "Five Stars", "text": "whats not to love about amazon gift cards?", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 121, "idx": 147146, "title": "Didn't work when I tried to upload to the Xbox.", "text": "I was not able to use the card that I had gotten.. It would not put the money on the account.", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 122, "idx": 138621, "title": "but I never received it so felt like being fooled", "text": "cards arrived okay, but it was advertised for $10 gift card, but I never received it so felt like being fooled!", "rating": 2.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 123, "idx": 42986, "title": "Three Stars", "text": "Written to keep a reader's interest", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 124, "idx": 105822, "title": "First time for everything.", "text": "The cards were not delivered as stated.  UPS - signed by driver release.  This is inappropriate.  I cannot afford to<br />lose the amount paid for gift cards. I do have serial numbers.<br />This order was place on Nov. 28, 2018.<br />Quebell Crank", "rating": 2.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 125, "idx": 132481, "title": "There's no place to write sender/receiver names or a short message. But the red packaging looks cute.", "text": "There's no place to write sender/receiver names or a short message. But the red packaging looks cute.", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 126, "idx": 150480, "title": "Great products, delivered on time and safely", "text": "I like all products and the way they were delivered very fast and safely", "rating": 3.0, "true": "NEUTRAL", "pred": "POSITIVE"}, {"n": 127, "idx": 31890, "title": "Three Stars", "text": "Gift.", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 128, "idx": 57802, "title": "Great gift for college students", "text": "I bought 8 cards for my college student for Christmas, he was so excited but we could use but the 8 one refuses to work. Yes checked all cards 3 times. Yes, double checked numbers still it will not work so buy 8 at 25 each and lose 1 $ 25.00 so pay for 8 but only get 7.", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 129, "idx": 115744, "title": "Ok", "text": "Why would I rate a gift card that I put on here-makes no sense", "rating": 5.0, "true": "POSITIVE", "pred": "NEUTRAL"}, {"n": 130, "idx": 77166, "title": "Good way to send gifts", "text": "Gift card is great and was delivered on time.  The card telling who it was from didn't make it into the package and it was an accident I found out.  They made the statement someone sent us $50 and we have no idea who.", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 131, "idx": 94799, "title": "That order is correct and mine not", "text": "I wrote 3 individual notes to my grandkids and only 2 where I closed. Very disappointed", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 132, "idx": 136935, "title": "The card was fine..", "text": "The card was fine...it's a card. The shipping was a joke. Was supposed to arrive the following day for a gift. Took almost two weeks", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 133, "idx": 94865, "title": "It works", "text": "It worked for me at Walmart and dollar general", "rating": 3.0, "true": "NEUTRAL", "pred": "POSITIVE"}, {"n": 134, "idx": 88390, "title": "I live in P.R. and I got it withing a week.", "text": "It was a gift for a friend.", "rating": 4.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 135, "idx": 95976, "title": "Three Stars", "text": "ok", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 136, "idx": 41562, "title": "Amazon gift card reload.", "text": "It's a trick. Nothing else. Why does one need to reload a gift card?", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 137, "idx": 6902, "title": "Five Stars", "text": "love it; thanks a million to My Amazon", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 138, "idx": 140188, "title": "Why didn't I receive my extra $10 for adding $100 to acct balance", "text": "Why did it not give me the $10 extra for my balance being $100 like it said", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}, {"n": 139, "idx": 71382, "title": "Fraud!", "text": "I purchased this card for Christmas and can\u2019t use it! The card has been voided!", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 140, "idx": 91634, "title": "Easy to use", "text": "Easy to use, home goodsExcellent", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 141, "idx": 25495, "title": "Nice", "text": "Nice", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 142, "idx": 147139, "title": "Could never get it tow work", "text": "Could never get this one to work", "rating": 1.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 143, "idx": 45628, "title": "Survey not worth it.", "text": "The Survey I had to take was not worth it.", "rating": 2.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 144, "idx": 117688, "title": "VISA GIFT CARDS MUST BE DELETED FROM ACCOUNT AFTER USING TO RELOAD FUNDS", "text": "I routinely add visa gift cards that my kids get as gifts to my amazon account and then give them cash.  This makes it easier to spend them and you don't have to worry about partial balances.  However, you must add t6he visa gift card as a payment type to your account and then you have to manually delete it later from a different web page.<br /><br />Why not allow these visa gift cards to be deleted directly from the reload page?", "rating": 3.0, "true": "NEUTRAL", "pred": "NEUTRAL"}, {"n": 145, "idx": 22666, "title": "Five Stars", "text": "Gift for brother-in-law.", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 146, "idx": 81916, "title": "Very cute!!", "text": "My niece will love this!!", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 147, "idx": 33769, "title": "Two Stars", "text": "Bad Deal!!<br />You pay over 10 to receive a 10 gift card.  Best to buy at store", "rating": 2.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 148, "idx": 111506, "title": "I was unable to use it at a restaurant. It kept saying invalid", "text": "I was unable to use it at a restaurant. It kept saying invalid", "rating": 2.0, "true": "NEGATIVE", "pred": "NEGATIVE"}, {"n": 149, "idx": 71406, "title": "Fun", "text": "Fun to give", "rating": 5.0, "true": "POSITIVE", "pred": "POSITIVE"}, {"n": 150, "idx": 20813, "title": "Lable the value.", "text": "We bought 3 cards of different values and we could figure out which one was what. Needs to be labeled values", "rating": 3.0, "true": "NEUTRAL", "pred": "NEGATIVE"}];
+const CONTEXT={"file_total": 152410, "file_stars": {"1": 12326, "2": 1873, "3": 3271, "4": 6692, "5": 128248}};
+const $=s=>document.querySelector(s);
+const C3=["POSITIVE","NEUTRAL","NEGATIVE"];
+const CH={POSITIVE:"P",NEUTRAL:"U",NEGATIVE:"N"};
+let filter="all",query="";
+function esc(s){const d=document.createElement("div");d.textContent=s??"";return d.innerHTML;}
+function renderKpis(){
+  const n=DATA.length, ag=DATA.filter(x=>x.pred===x.true).length;
+  $("#kA").innerHTML=Math.round(ag/n*100)+"<small>%</small>"; $("#kAn").textContent=ag+" of "+n+" agree with the rubric";
+  for(const c of C3){
+    const sub=DATA.filter(x=>x.true===c); const hit=sub.filter(x=>x.pred===c).length;
+    const el={POSITIVE:"kP",NEUTRAL:"kU",NEGATIVE:"kN"}[c], en={POSITIVE:"kPn",NEUTRAL:"kUn",NEGATIVE:"kNn"}[c];
+    $("#"+el).innerHTML=Math.round(hit/sub.length*100)+"<small>%</small>";
+    $("#"+en).textContent="caught "+hit+" of "+sub.length+" true-"+c.toLowerCase();
+  }
+}
+function renderCM(){
+  const cell=(n,cls,d)=>`<div class="cell ${cls}"><div class="v">${n}</div><div class="d">${d}</div></div>`;
+  let cm='<div class="corner"></div>'
+    + '<div class="colh">POSITIVE</div><div class="colh">NEUTRAL</div><div class="colh">NEGATIVE</div>'
+    + '<div class="corner" style="align-self:end"></div><div class="corner" style="text-align:right">predicted&nbsp;&#8594;</div><div class="corner"></div><div class="corner"></div>';
+  for(const t of C3){
+    cm+=`<div class="clabel"><b>${CH[t]}</b><small>${t.toLowerCase()}</small></div>`;
+    for(const p of C3){
+      const cnt=DATA.filter(x=>x.true===t&&x.pred===p).length;
+      cm+=cell(cnt, t===p?"yes":"off", t===p?"correct":"miss");
+    }
+  }
+  $("#cm").innerHTML=cm;
+}
+function renderLeak(){
+  const tru=DATA.filter(x=>x.true==="NEUTRAL");
+  const cnt=p=>tru.filter(x=>x.pred===p).length;
+  const cols={POSITIVE:["var(--pos)",cnt("POSITIVE")],NEUTRAL:["var(--neu)",cnt("NEUTRAL")],NEGATIVE:["var(--neg)",cnt("NEGATIVE")]};
+  const tot=tru.length; let h="";
+  for(const c of C3){
+    const [col,v]=cols[c]; const pct=tot?Math.round(v/tot*100):0;
+    h+=`<div class="leakbar"><div class="lab">${CH[c]}&nbsp;${c.toLowerCase()}</div>
+      <div class="track"><i style="width:${pct}%;background:${col}"></i></div><div class="n">${v}</div></div>`;
+  }
+  h+=`<div class="leakbar"><div class="lab" style="font-weight:600">total true 3&#9733;</div><div class="track"></div><div class="n">${tot}</div></div>`;
+  $("#leak").innerHTML=h;
+}
+function renderVerdict(){
+  const n=DATA.length, ag=DATA.filter(x=>x.pred===x.true).length;
+  const neu=DATA.filter(x=>x.true==="NEUTRAL");
+  const kept=neu.filter(x=>x.pred==="NEUTRAL").length;
+  const down=neu.filter(x=>x.pred==="NEGATIVE").length, up=neu.filter(x=>x.pred==="POSITIVE").length;
+  $("#verdict").innerHTML=
+   `<b>${Math.round(ag/n*100)}% — strong at the extremes, weak at NEUTRAL.</b>
+    Clear-cut positives (88%) and negatives (84%) are caught well. The 3&#9733; class is the story:
+    only <b>${kept} of 50</b> keep NEUTRAL — the rest leak <b>${down} to NEGATIVE</b> and <b>${up} to POSITIVE</b>.
+    A balanced sample exposes this because the real file is ~84% five-star; an in-order slice would hide NEUTRAL almost entirely.`;
+}
+function renderStars(){
+  const cnt={1:0,2:0,3:0,4:0,5:0};
+  DATA.forEach(x=>{cnt[x.rating]=cnt[x.rating]+1;});
+  let h="";
+  for(let s=5;s>=1;s--){
+    const v=cnt[s]; const pct=Math.round(v/DATA.length*100);
+    h+=`<div class="hbar"><div class="lbl">${s}&#9733;</div><div class="track"><span class="fill" style="width:${pct}%"></span></div><div class="cnt" style="text-align:right">${v}</div></div>`;
+  }
+  $("#stars").innerHTML=h;
+  const fs=CONTEXT.file_stars, t=CONTEXT.file_total;
+  $("#starsAttr").innerHTML=`Source-file balance: 5&#9733; is ${(fs["5"]/t*100).toFixed(0)}% of ${t.toLocaleString()} reviews; a random slice would bury NEUTRAL. This sample is re-weighted to 50 per class.`;
+}
+function renderVs(){
+  let h="";
+  for(const c of C3){
+    const t=DATA.filter(x=>x.true===c).length; const p=DATA.filter(x=>x.pred===c).length; const mx=25;
+    h+=`<div class="double"><div class="cap">${c}</div>
+      <div class="row"><div class="glab">rubric</div><div class="track"><span class="fill true" style="width:${Math.round(t/mx*100)}%"></span></div><div class="n">${t}</div></div>
+      <div class="row"><div class="glab">model</div><div class="track"><span class="fill pred" style="width:${Math.round(p/mx*100)}%"></span></div><div class="n">${p}</div></div></div>`;
+  }
+  $("#vs").innerHTML=h;
+}
+function renderAcc(){
+  let h="";
+  for(const c of C3){
+    const sub=DATA.filter(x=>x.true===c), rec=sub.filter(x=>x.pred===c).length;
+    const preds=DATA.filter(x=>x.pred===c), prec=preds.filter(x=>x.true===c).length;
+    const row=(lab,pct,txt,col)=>`<div class="row"><div class="glab">${lab}</div><div class="track"><span class="fill" style="width:${pct}%;background:${col}"></span></div><div class="n">${txt}</div></div>`;
+    h+=`<div class="double"><div class="cap">${c}</div>
+      ${row("recall",Math.round(rec/sub.length*100),rec+"/"+sub.length,"var(--pos)")}
+      ${row("prec.",Math.round(prec/preds.length*100),prec+"/"+preds.length,"var(--neg)")}</div>`;
+  }
+  $("#acc").innerHTML=h;
+}
+function chip(ok){return `<span class="chan ${ok?"N":"P"}">${ok?"correct":"miss"}</span>`;}
+function renderTable(){
+  const rs=DATA.filter(x=>(filter==="all"||(filter==="ok"&&x.pred===x.true)||(filter==="err"&&x.pred!==x.true))
+    && (query===""||(x.title+" "+x.text).toLowerCase().includes(query)));
+  $("#rc").textContent=rs.length+" shown · "+DATA.length+" total";
+  $("#em").style.display=rs.length?"none":"block";
+  let h="";
+  for(const x of rs){ const ok=x.pred===x.true;
+    h+=`<tr>
+      <td class="num">${x.rating}.0&nbsp;&#9733;</td>
+      <td><span class="chan ${ok?"N":"P"}">${ok?"correct":"miss"}</span><br/>
+        <span style="font-size:11px;color:var(--faint)">${esc(x.true)}&nbsp;&#8594;&nbsp;${esc(x.pred)}</span></td>
+      <td class="title">${esc(x.title)||"&mdash;"}</td>
+      <td class="text"><span class="ex">${esc(x.text)||"&mdash;"}</span>
+        ${(x.text||"").length>150?`<span class="toggle" onclick="this.parentElement.classList.toggle('open')">more/less</span>`:""}</td>
+    </tr>`; }
+  $("#tb").innerHTML=h;
+}
+function renderAll(){renderKpis();renderCM();renderLeak();renderStars();renderVs();renderAcc();renderVerdict();renderTable();}
+function theme(t){document.documentElement.setAttribute("data-theme",t);$("#tDark").setAttribute("aria-pressed",String(t==="dark"));
+  $("#tLight").setAttribute("aria-pressed",String(t==="light"));try{localStorage.setItem("theme",t)}catch(e){}}
+$("#tDark").onclick=()=>theme("dark");$("#tLight").onclick=()=>theme("light");
+document.querySelectorAll(".sw").forEach(s=>s.onclick=()=>{
+  document.querySelectorAll(".sw").forEach(x=>x.style.borderColor="");
+  s.style.borderColor="var(--ink)";
+  document.documentElement.style.setProperty("--accent",s.dataset.c);});
+function ping(){["fA","fOk","fEr"].forEach(id=>$("#"+id).setAttribute("aria-pressed",String(id[1].toLowerCase()===filter[0])));renderTable();}
+$("#fA").onclick=()=>{filter="all";ping();};
+$("#fOk").onclick=()=>{filter="ok";ping();};
+$("#fEr").onclick=()=>{filter="err";ping();};
+$("#q").addEventListener("input",e=>{query=e.target.value.trim().toLowerCase();renderTable();});
+try{const t=localStorage.getItem("theme");if(t)theme(t)}catch(e){}
+renderAll();
+</script>
+</body></html>

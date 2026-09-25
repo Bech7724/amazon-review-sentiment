@@ -1,0 +1,11 @@
+Below are {count} product reviews. For EACH one classify the overall sentiment as EXACTLY ONE of: POSITIVE, NEUTRAL, or NEGATIVE.
+- POSITIVE: clearly favorable
+- NEUTRAL: mixed, matter-of-fact, or unremarkable
+- NEGATIVE: clearly unfavorable
+
+Reply strictly as a numbered list, one per line, in the format: 1: POSITIVE
+Use only the words POSITIVE, NEUTRAL, or NEGATIVE. No other text.
+
+Review {i}:
+Title: {title}
+Text: {text}
